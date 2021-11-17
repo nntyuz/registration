@@ -134,6 +134,7 @@
     color: var(--color-light-1);
     margin-bottom: 6px;
     svg {
+      fill: var(--color-light-1);
       margin-right: 16px;
     }
     @include md {

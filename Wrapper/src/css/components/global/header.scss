@@ -92,12 +92,6 @@
     svg {
       fill: var(--color-light-1);
       margin-right: 16px;
-      @include md {
-        fill: var(--color-yellow-1);
-      }
-    }
-    @include md {
-      color: var(--color-yellow-1);
     }
     @include xs {
       display: none;

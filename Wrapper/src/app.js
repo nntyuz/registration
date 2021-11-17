@@ -51,4 +51,17 @@ const windowClick = ($evt) => {
   }
 }
 
+const footerBtn = document.querySelector('.footer-button')
+
+function scrollPageUp() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+
+footerBtn.addEventListener('click', scrollPageUp)
+
+
+
 window.addEventListener('click', windowClick)

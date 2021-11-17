@@ -167,6 +167,9 @@
     &:hover {
       border: 3px solid #f8b043;
     }
+    @include xs {
+      margin-top: 20px;
+    }
   }
   .mob-footer-link {
     display: none;
@@ -177,15 +180,13 @@
         font-weight: 300;
         font-size: 14px;
         line-height: 16px;
+        margin-bottom: 20px;
         color: var(--color-light-1);
         border-bottom: 1px solid var(--color-light-1);
         transition: 300ms;
-        &:not(:last-child) {
-          margin-bottom: 20px;
-        }
-        &:hover {
-          border-bottom: 1px solid transparent;
-        }
+      }
+      &:hover {
+        border-bottom: 1px solid transparent;
       }
     }
   }

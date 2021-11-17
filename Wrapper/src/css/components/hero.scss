@@ -91,6 +91,9 @@
     }
     @include xs {
       align-items: center;
+      &:not(:last-child) {
+        margin-bottom: 40px;
+      }
     }
   }
   .hero-button-container {

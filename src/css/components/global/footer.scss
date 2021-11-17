@@ -105,9 +105,13 @@
     border: 2px solid var(--color-yellow-2);
     border-radius: 5px;
     svg {
-      height: 20px;
-      width: auto;
       fill: var(--color-yellow-2);
+    }
+    &:hover {
+      border: 2px solid #ffdb6b;
+      svg {
+        fill: #ffdb6b;
+      }
     }
   }
   .phone-container {

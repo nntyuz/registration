@@ -1,0 +1,177 @@
+.hero-section {
+  position: relative;
+  background-image: url(./img/back.png);
+  background-size: cover;
+
+  padding-top: 200px;
+  padding-bottom: 170px;
+  @include md {
+    padding-bottom: 100px;
+  }
+  @include xs {
+    padding-top: 100px;
+    padding-bottom: 75px;
+  }
+  h1 {
+    color: var(--color-light-1);
+    font-weight: 900;
+    font-size: 76px;
+    line-height: 86px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    margin-bottom: 70px;
+    @include lg {
+      font-size: 66px;
+    }
+    @include md {
+      font-size: 46px;
+      line-height: 56px;
+      text-align: left;
+      margin-bottom: 80px;
+    }
+    @include xs {
+      font-size: 30px;
+      line-height: 42px;
+      margin-bottom: 36px;
+    }
+  }
+  .hero-container {
+    align-items: center;
+    justify-content: center;
+    @include md {
+      flex-direction: column;
+      align-items: normal;
+      justify-content: normal;
+    }
+  }
+  .hero-adv {
+    align-items: center;
+    flex-direction: column;
+    &:not(:last-child) {
+      margin-right: 218px;
+    }
+    svg {
+      @include xs {
+        max-width: 42px;
+        max-height: 42px;
+      }
+    }
+    .txt {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+      color: var(--color-light-1);
+      margin-top: 20px;
+      @include md {
+        text-align: left;
+        margin-left: 24px;
+        font-weight: 300;
+      }
+      @include xs {
+        font-size: 14px;
+        line-height: 16px;
+        margin: 0;
+        margin-left: 14px;
+      }
+    }
+    @include lg {
+      &:not(:last-child) {
+        margin-right: 118px;
+      }
+    }
+    @include md {
+      align-items: normal;
+      flex-direction: row;
+      margin-right: 0;
+      &:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 60px;
+      }
+    }
+    @include xs {
+      align-items: center;
+    }
+  }
+  .hero-button-container {
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    button {
+      width: 520px;
+      height: 84px;
+      background: linear-gradient(
+        180deg,
+        var(--color-yellow-1) 0%,
+        #ffdd00 100%
+      );
+      box-shadow: 0px 0px 28px rgba(247, 190, 77, 0.65);
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 30px;
+      color: var(--color-dark-2);
+      transition: 300ms;
+      svg {
+        &:first-child {
+          margin-left: 41px;
+          @include xs {
+            margin-left: 30px;
+          }
+        }
+      }
+      &:hover {
+        background: linear-gradient(92.12deg, #ffe228 15.02%, #ffe016 94.54%);
+        box-shadow: 0px 0px 18.5769px #ffd583;
+      }
+      @include xs {
+        width: 100%;
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+    @include md {
+      align-items: normal;
+      justify-content: normal;
+    }
+    @include xs {
+      margin-top: 55px;
+    }
+  }
+  .messengers {
+    display: none;
+    @include xxs {
+      display: flex;
+      margin-top: 65px;
+      align-items: center;
+    }
+  }
+  .mess-txt {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--color-light-1);
+    margin-right: 30px;
+  }
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    border: 2px solid var(--color-yellow-2);
+    border-radius: 5px;
+    svg {
+      height: 20px;
+      width: auto;
+      fill: var(--color-yellow-2);
+    }
+    &:hover {
+      border: 2px solid #ffdb6b;
+      svg {
+        fill: #ffdb6b;
+      }
+    }
+  }
+}

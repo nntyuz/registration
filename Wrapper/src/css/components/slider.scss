@@ -1,0 +1,61 @@
+.slider-section {
+  padding-top: 220px;
+  padding-bottom: 180px;
+  @include lg {
+    padding-top: 120px;
+  }
+  @include xs {
+    padding-top: 60px;
+  }
+  .slider-title {
+    margin-bottom: 75px;
+    @include lg {
+      margin-bottom: 60px;
+    }
+    @include xs {
+      margin-bottom: 30px;
+    }
+  }
+  .slide {
+    background-image: url(./img/device.png);
+    height: 808px !important;
+    width: 383px !important;
+    flex-shrink: 0;
+    margin-right: 86px;
+    padding-left: 10px;
+    padding-right: 10px;
+    img {
+      max-width: 364px;
+      max-height: 630px;
+    }
+  }
+  .slider-wrapper {
+    @include lg {
+      position: relative;
+    }
+  }
+  .slider-button {
+    flex-shrink: 0;
+    width: 94px;
+    height: 94px;
+    border: 2px solid #f8b043;
+    border-radius: 100%;
+    margin-right: 65px;
+    &:last-child {
+      margin-left: 65px;
+      margin-right: 0;
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+    @include lg {
+      position: absolute;
+      z-index: 2;
+      bottom: -150px;
+      right: 0;
+      &:first-child {
+        left: 0;
+      }
+    }
+  }
+}

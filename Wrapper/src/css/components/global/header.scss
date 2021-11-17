@@ -1,0 +1,120 @@
+.global-header {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  padding-top: 20px;
+  .burger {
+    display: none;
+    @include md {
+      display: block;
+    }
+  }
+  .phone-mobile {
+    display: none;
+    @include xs {
+      display: block;
+    }
+  }
+  .logo {
+    cursor: pointer;
+    @include md {
+      display: none;
+    }
+  }
+  .header-link {
+    a {
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 20px;
+      color: var(--color-light-1);
+      transition: 300ms;
+      border-bottom: 1px solid transparent;
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+      &:hover {
+        border-bottom: 1px solid var(--color-light-1);
+      }
+    }
+    @include md {
+      display: none;
+    }
+  }
+  .messengers {
+    @include md {
+      display: none;
+    }
+  }
+  .mess-txt {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--color-light-1);
+    margin-right: 30px;
+    @include lg {
+      display: none;
+    }
+    @include md {
+      display: block;
+    }
+  }
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    border: 2px solid var(--color-yellow-2);
+    border-radius: 5px;
+    transition: 300ms;
+    svg {
+      height: 20px;
+      width: auto;
+      fill: var(--color-yellow-2);
+    }
+    &:hover {
+      border: 2px solid #ffdb6b;
+      svg {
+        fill: #ffdb6b;
+      }
+    }
+  }
+  .phone-container {
+    cursor: pointer;
+  }
+  .phone {
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 36px;
+    color: var(--color-light-1);
+    margin-bottom: 6px;
+    svg {
+      fill: var(--color-light-1);
+      margin-right: 16px;
+      @include md {
+        fill: var(--color-yellow-1);
+      }
+    }
+    @include md {
+      color: var(--color-yellow-1);
+    }
+    @include xs {
+      display: none;
+    }
+  }
+  .phone-txt {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: var(--color-yellow-1);
+    border-bottom: 1px solid transparent;
+    transition: 300ms;
+    &:hover {
+      border-bottom: 1px solid var(--color-yellow-1);
+    }
+    @include md {
+      display: none;
+    }
+  }
+}

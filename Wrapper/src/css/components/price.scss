@@ -1,0 +1,154 @@
+.price-section {
+  background-image: url(./img/back-pay.png);
+  padding-top: 120px;
+  padding-bottom: 168px;
+  @include xl {
+    background-size: cover;
+  }
+  @include xs {
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
+  .price-title {
+    align-items: center;
+    justify-content: center;
+    color: var(--color-light-1);
+    margin-bottom: 90px;
+    @include xs {
+      margin-bottom: 35px;
+      align-items: normal;
+      justify-content: normal;
+    }
+  }
+  .price-wrapper {
+    align-items: center;
+    justify-content: center;
+    @include xl {
+      flex-direction: column;
+    }
+  }
+  .price-container {
+    position: relative;
+    width: 623px;
+    height: 645px;
+    padding-top: 90px;
+    padding-left: 150px;
+    margin-right: 74px;
+    margin-bottom: 80px;
+    border: 3px solid var(--color-yellow-1);
+    border-radius: 10px;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      backdrop-filter: blur(35.8266px);
+      border-radius: 10px;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    @include xl {
+      margin-right: 0;
+    }
+    @include xs {
+      align-items: center;
+      border: 2px solid var(--color-yellow-1);
+      border-radius: 10px;
+      width: 100%;
+      height: 280px;
+      padding-top: 40px;
+      padding-left: 0;
+      margin-bottom: 0;
+      &:not(:last-child) {
+        margin-bottom: 25px;
+      }
+    }
+  }
+  .price-txt-container {
+    position: static;
+    z-index: 10;
+  }
+  .price-container-title {
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 42px;
+    color: var(--color-light-1);
+    @include xs {
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+  .price-line {
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-yellow-1);
+    margin-top: 10px;
+    @include xs {
+      width: 20px;
+      height: 1px;
+      margin-top: 4px;
+    }
+  }
+  .mounths {
+    margin-top: 40px;
+    @include xs {
+      margin-top: 16px;
+    }
+  }
+  .point {
+    width: 13px;
+    height: 13px;
+    border-radius: 100%;
+    background: linear-gradient(180deg, #ffce66 0%, #ffad00 100%);
+    box-shadow: 0px 0px 11px #fed885;
+  }
+  .price {
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 36px;
+    color: var(--color-light-1);
+    margin-left: 26px;
+    @include xs {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+  .act-button {
+    width: 520px;
+    height: 84px;
+    border-radius: 50px;
+    background: linear-gradient(
+      180deg,
+      var(--color-yellow-1) 0%,
+      var(--color-yellow-1) 100%
+    );
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    color: var(--color-dark-2);
+    transition: 300ms;
+    svg {
+      &:first-child {
+        margin-left: 41px;
+      }
+    }
+    &:hover {
+      background: linear-gradient(92.12deg, #ffe228 15.02%, #ffe016 94.54%);
+      box-shadow: 0px 0px 18.5769px #ffd583;
+    }
+    @include xs {
+      width: 100%;
+      margin-top: 50px;
+      font-size: 14px;
+      line-height: 16px;
+      svg {
+        &:first-child {
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+}

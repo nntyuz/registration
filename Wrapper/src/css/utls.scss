@@ -1,0 +1,47 @@
+h2 {
+  color: var(--color-dark-2);
+  font-size: 60px;
+  line-height: 72px;
+  font-weight: 700;
+  @include lg {
+    font-size: 46px;
+    line-height: 56px;
+  }
+  @include md {
+    font-size: 36px;
+    line-height: 46px;
+  }
+  @include xs {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+
+.w-container {
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.flex {
+  display: flex;
+  &.column {
+    flex-direction: column;
+  }
+  &.j-between {
+    justify-content: space-between;
+  }
+  &.j-center {
+    justify-content: center;
+  }
+  &.a-center {
+    align-items: center;
+  }
+  &.a-end {
+    align-items: flex-end;
+  }
+}
+
+.mr-10 {
+  margin-right: 10px;
+}

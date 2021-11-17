@@ -108,7 +108,11 @@
     align-items: flex-start;
   }
   .adv {
+    display: none;
     justify-content: space-between;
+    &.active {
+      display: flex;
+    }
     @include lg {
       justify-content: normal;
       flex-direction: column;

@@ -1,7 +1,5 @@
-<section class="application-section w-container">
-  <h2 class="app-title anchor-link flex" data-anchor="#form">
-    Заполните анкету
-  </h2>
+<section class="application-section w-container" id="form">
+  <h2 class="app-title flex">Заполните анкету</h2>
   <div class="app-container">
     <div class="app-wrapper flex j-center">
       <input
@@ -18,16 +16,11 @@
       />
     </div>
     <div class="app-wrapper flex j-between">
+      <div ref="select-box-citizenship" class="app-input"></div>
       <input
-        class="app-input"
-        type="text"
-        name="citizenship"
-        placeholder="Выберите гражданство:"
-      />
-      <input
-        class="app-input"
-        type="date"
+        class="app-input date-input"
         name="birth"
+        data-name="birth"
         placeholder="Дата рождения:"
       />
       <input
@@ -38,12 +31,7 @@
       />
     </div>
     <div class="app-wrapper flex j-between">
-      <input
-        class="app-input"
-        type="text"
-        name="document"
-        placeholder="Выберите документ:"
-      />
+      <div ref="select-box-document" class="app-input"></div>
       <input
         class="app-input"
         type="number"
@@ -65,67 +53,62 @@
         placeholder="Кем выдан документ:"
       />
       <input
-        class="app-input"
-        type="date"
+        class="app-input date-input"
+        data-name="date"
         name="date"
         placeholder="Дата выдачи документа:"
       />
-      <input
-        class="app-input mr-0"
-        type="number"
-        name="term-reg"
-        placeholder="Выберите срок регистрации:"
-      />
+      <div ref="select-box-period" class="app-input mr-0"></div>
     </div>
     <textarea
       class="app-comment"
       name="comment"
       placeholder="Комментарий"
     ></textarea>
-  </div>
-  <div class="flex column a-center j-center">
-    <button class="act-button flex a-center j-center">
-      Отправить
-      <svg
-        width="7"
-        height="11"
-        viewBox="0 0 7 11"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M5.85379 6.33438C6.11289 6.07528 6.11289 5.6552 5.85379 5.3961L1.63157 1.17384C1.37247 0.914742 0.952388 0.914741 0.693289 1.17384C0.43419 1.43293 0.434189 1.85302 0.693285 2.11211L4.44638 5.86523L0.693257 9.61832C0.434159 9.87742 0.434157 10.2975 0.693254 10.5566C0.952351 10.8157 1.37243 10.8157 1.63153 10.5566L5.85379 6.33438ZM4.72119 6.5287L5.38465 6.5287L5.38466 5.20178L4.72119 5.20177L4.72119 6.5287Z"
-          fill="#3E3E3E"
-        />
-      </svg>
-      <svg
-        width="7"
-        height="11"
-        viewBox="0 0 7 11"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M5.85379 6.33438C6.11289 6.07528 6.11289 5.6552 5.85379 5.3961L1.63157 1.17384C1.37247 0.914742 0.952388 0.914741 0.693289 1.17384C0.43419 1.43293 0.434189 1.85302 0.693285 2.11211L4.44638 5.86523L0.693257 9.61832C0.434159 9.87742 0.434157 10.2975 0.693254 10.5566C0.952351 10.8157 1.37243 10.8157 1.63153 10.5566L5.85379 6.33438ZM4.72119 6.5287L5.38465 6.5287L5.38466 5.20178L4.72119 5.20177L4.72119 6.5287Z"
-          fill="#3E3E3E"
-        />
-      </svg>
-      <svg
-        width="7"
-        height="11"
-        viewBox="0 0 7 11"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M5.85379 6.33438C6.11289 6.07528 6.11289 5.6552 5.85379 5.3961L1.63157 1.17384C1.37247 0.914742 0.952388 0.914741 0.693289 1.17384C0.43419 1.43293 0.434189 1.85302 0.693285 2.11211L4.44638 5.86523L0.693257 9.61832C0.434159 9.87742 0.434157 10.2975 0.693254 10.5566C0.952351 10.8157 1.37243 10.8157 1.63153 10.5566L5.85379 6.33438ZM4.72119 6.5287L5.38465 6.5287L5.38466 5.20178L4.72119 5.20177L4.72119 6.5287Z"
-          fill="#3E3E3E"
-        />
-      </svg>
-    </button>
-    <div class="form-privacy flex">
-      Заполняя форму вы соглашаетесь с
-      <a href="#"> политикой конфеднциальности</a>
+    <div class="flex column a-center j-center">
+      <button class="act-button flex a-center j-center">
+        Отправить
+        <svg
+          width="7"
+          height="11"
+          viewBox="0 0 7 11"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.85379 6.33438C6.11289 6.07528 6.11289 5.6552 5.85379 5.3961L1.63157 1.17384C1.37247 0.914742 0.952388 0.914741 0.693289 1.17384C0.43419 1.43293 0.434189 1.85302 0.693285 2.11211L4.44638 5.86523L0.693257 9.61832C0.434159 9.87742 0.434157 10.2975 0.693254 10.5566C0.952351 10.8157 1.37243 10.8157 1.63153 10.5566L5.85379 6.33438ZM4.72119 6.5287L5.38465 6.5287L5.38466 5.20178L4.72119 5.20177L4.72119 6.5287Z"
+            fill="#3E3E3E"
+          />
+        </svg>
+        <svg
+          width="7"
+          height="11"
+          viewBox="0 0 7 11"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.85379 6.33438C6.11289 6.07528 6.11289 5.6552 5.85379 5.3961L1.63157 1.17384C1.37247 0.914742 0.952388 0.914741 0.693289 1.17384C0.43419 1.43293 0.434189 1.85302 0.693285 2.11211L4.44638 5.86523L0.693257 9.61832C0.434159 9.87742 0.434157 10.2975 0.693254 10.5566C0.952351 10.8157 1.37243 10.8157 1.63153 10.5566L5.85379 6.33438ZM4.72119 6.5287L5.38465 6.5287L5.38466 5.20178L4.72119 5.20177L4.72119 6.5287Z"
+            fill="#3E3E3E"
+          />
+        </svg>
+        <svg
+          width="7"
+          height="11"
+          viewBox="0 0 7 11"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.85379 6.33438C6.11289 6.07528 6.11289 5.6552 5.85379 5.3961L1.63157 1.17384C1.37247 0.914742 0.952388 0.914741 0.693289 1.17384C0.43419 1.43293 0.434189 1.85302 0.693285 2.11211L4.44638 5.86523L0.693257 9.61832C0.434159 9.87742 0.434157 10.2975 0.693254 10.5566C0.952351 10.8157 1.37243 10.8157 1.63153 10.5566L5.85379 6.33438ZM4.72119 6.5287L5.38465 6.5287L5.38466 5.20178L4.72119 5.20177L4.72119 6.5287Z"
+            fill="#3E3E3E"
+          />
+        </svg>
+      </button>
+      <div class="form-privacy flex">
+        Заполняя форму вы соглашаетесь с
+        <a href="#"> политикой конфеднциальности</a>
+      </div>
     </div>
   </div>
 </section>

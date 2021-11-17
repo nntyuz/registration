@@ -16,6 +16,7 @@
     "posthtml-include": "^1.7.2"
   },
   "dependencies": {
+    "js-datepicker": "^5.18.0",
     "posthtml": "^0.16.5"
   }
 }

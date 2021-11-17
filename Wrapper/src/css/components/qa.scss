@@ -15,6 +15,27 @@
     padding-right: 62px;
     margin-top: 0;
     margin-bottom: 30px;
+    &.active {
+      .qa-txt {
+        display: block;
+        width: 100%;
+        max-width: 986px;
+        padding-bottom: 55px;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 24px;
+        @include xs {
+          font-size: 12px;
+          line-height: 14px;
+        }
+      }
+      .plus {
+        display: none;
+      }
+      .minus {
+        display: block;
+      }
+    }
     &:last-child {
       margin-bottom: 0;
     }
@@ -57,21 +78,11 @@
     width: 28px;
     height: 2px;
     background-color: #ffad00;
+    @include xs {
+      width: 14px;
+    }
   }
   .qa-txt {
     display: none;
-    &.active {
-      display: block;
-      width: 100%;
-      max-width: 986px;
-      padding-bottom: 55px;
-      font-weight: 300;
-      font-size: 20px;
-      line-height: 24px;
-      @include xs {
-        font-size: 12px;
-        line-height: 14px;
-      }
-    }
   }
 }

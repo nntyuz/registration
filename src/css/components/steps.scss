@@ -236,6 +236,9 @@
     @include xs {
       font-size: 12px;
       line-height: 14px;
+      br {
+        display: none;
+      }
     }
   }
 }

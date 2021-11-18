@@ -52,8 +52,8 @@
     margin-top: 100px;
     justify-content: space-between;
     @include xl {
-      margin-top: 80px;
       flex-wrap: wrap;
+      margin-top: 80px;
       justify-content: space-evenly;
     }
     @include md {
@@ -64,7 +64,8 @@
     }
   }
   .form-input {
-    width: 505px;
+    width: 100%;
+    max-width: 505px;
     height: 83px;
     background-color: var(--color-light-1);
     border-radius: 10px;
@@ -74,6 +75,7 @@
     font-size: 20px;
     line-height: 24px;
     color: var(--color-dark-2);
+    margin-right: 50px;
     @include lg {
       width: 100%;
       &:not(:last-child) {

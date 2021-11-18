@@ -3,8 +3,7 @@ $xs: 660px;
 $sm: 768px;
 $md: 960px;
 $lg: 1280px;
-$xl: 1440px;
-$xxl: 1600px;
+$xl: 1600px;
 
 @mixin xxs {
   @media (max-width: $xxs) {
@@ -38,11 +37,6 @@ $xxl: 1600px;
 
 @mixin xl {
   @media (max-width: $xl) {
-    @content;
-  }
-}
-@mixin xxl {
-  @media (max-width: $xxl) {
     @content;
   }
 }

@@ -51,6 +51,8 @@
       }
       @include lg {
         width: 380px;
+        font-size: 20px;
+        line-height: 20px;
       }
 
       @include md {
@@ -250,7 +252,7 @@
     &.mr-doc {
       margin-right: 230px;
       @include lg {
-        margin-right: 190px;
+        margin-right: 160px;
       }
       @include md {
         margin-right: 0;

@@ -3,6 +3,10 @@ h2 {
   font-size: 60px;
   line-height: 72px;
   font-weight: 700;
+  @include xl {
+    font-size: 50px;
+    line-height: 66px;
+  }
   @include lg {
     font-size: 46px;
     line-height: 56px;
@@ -21,6 +25,12 @@ h2 {
   max-width: 1680px;
   margin: 0 auto;
   padding: 0 20px;
+  @include xl {
+    max-width: 1440px;
+  }
+  @include lg {
+    max-width: 960px;
+  }
 }
 
 .flex {

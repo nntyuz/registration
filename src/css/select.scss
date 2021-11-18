@@ -11,9 +11,13 @@
 }
 
 .select__label {
+  font-size: 20px;
   height: 25px;
   line-height: 25px;
   margin-right: 25px;
+  @include xs {
+    font-size: 14px;
+  }
 }
 
 .select__arrow {

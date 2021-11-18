@@ -65,16 +65,16 @@
     width: 36px;
     height: 36px;
     cursor: pointer;
-    border: 2px solid var(--color-yellow-2);
+    border: 2px solid var(--color-yellow-1);
     border-radius: 5px;
     transition: 300ms;
     svg {
-      fill: var(--color-yellow-2);
+      fill: var(--color-yellow-1);
     }
     &:hover {
-      border: 2px solid #ffdb6b;
+      border: 2px solid var(--color-yellow-2);
       svg {
-        fill: #ffdb6b;
+        fill: var(--color-yellow-2);
       }
     }
   }
@@ -90,6 +90,12 @@
     svg {
       fill: var(--color-light-1);
       margin-right: 16px;
+    }
+    &:hover {
+      color: var(--color-yellow-1);
+      svg {
+        fill: var(--color-yellow-1);
+      }
     }
     @include xs {
       display: none;

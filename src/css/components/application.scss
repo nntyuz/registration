@@ -41,6 +41,10 @@
     color: var(--color-dark-2);
     margin-bottom: 60px;
     margin-right: 60px;
+    @include lg {
+      padding-left: 20px;
+      font-size: 14px;
+    }
     @include md {
       margin-bottom: 30px;
     }
@@ -67,6 +71,10 @@
     font-size: 20px;
     line-height: 24px;
     color: var(--color-dark-2);
+    @include lg {
+      padding-left: 20px;
+      font-size: 14px;
+    }
     @include md {
       margin-bottom: 60px;
     }

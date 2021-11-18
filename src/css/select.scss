@@ -15,7 +15,7 @@
   height: 25px;
   line-height: 25px;
   margin-right: 25px;
-  @include xs {
+  @include lg {
     font-size: 14px;
   }
 }

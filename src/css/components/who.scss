@@ -231,6 +231,9 @@
     font-weight: 300;
     color: var(--color-dark-2);
     margin-left: 72px;
+    @include lg {
+      margin-left: 55px;
+    }
     @include md {
       margin-left: 0;
       height: auto;
@@ -252,7 +255,7 @@
     &.mr-doc {
       margin-right: 230px;
       @include lg {
-        margin-right: 160px;
+        margin-right: 175px;
       }
       @include md {
         margin-right: 0;
@@ -270,6 +273,9 @@
       position: absolute;
       top: 60px;
       margin-left: 30px;
+      @include lg {
+        margin-left: 10px;
+      }
       @include md {
         display: none;
       }

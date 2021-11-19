@@ -1,5 +1,6 @@
 .who-section {
   padding-top: 140px;
+  position: relative;
   @include md {
     padding-top: 120px;
   }
@@ -60,17 +61,21 @@
         font-size: 20px;
         width: auto;
         height: auto;
-        background-color: none;
+        background-color: transparent;
         border: none;
         padding: 0;
+        &:last-child {
+          margin-right: 170px;
+        }
       }
 
       @include xs {
         font-weight: 700;
         font-size: 12px;
         line-height: 14px;
-        &:not(:last-child) {
-          margin-right: 22px;
+        &:last-child {
+          margin-left: 22px;
+          margin-right: 0;
         }
       }
     }
@@ -109,7 +114,7 @@
   .who-adv-txt-container {
     align-items: flex-start;
   }
-  .adv {
+  .advantages {
     display: none;
     justify-content: space-between;
     &.active {
@@ -129,15 +134,20 @@
       margin-right: 0;
     }
     @include lg {
-      &:not(:last-child) {
-        margin-bottom: 40px;
+      margin-bottom: 40px;
+      &:last-child {
+        margin-bottom: 0;
       }
     }
     @include xs {
       font-size: 12px;
       line-height: 14px;
-      &:not(:last-child) {
-        margin-bottom: 20px;
+      margin-bottom: 20px;
+      br {
+        display: none;
+      }
+      &:last-child {
+        margin-bottom: 0;
       }
     }
   }
@@ -151,7 +161,7 @@
       height: auto;
     }
     @include xs {
-      width: 3px;
+      width: 1px;
     }
   }
   .line {
@@ -281,6 +291,16 @@
       }
     }
   }
+  .fine {
+    @include xl {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @include md {
+      display: block;
+    }
+  }
   .fine-block {
     width: 448px;
     height: 314px;
@@ -288,10 +308,11 @@
     background-color: var(--color-light-1);
     padding: 7px;
     @include xl {
-      width: 100%;
+      width: 448px;
       margin-top: 100px;
     }
     @include md {
+      width: 100%;
       margin-top: 60px;
     }
     @include xs {

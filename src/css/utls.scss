@@ -55,3 +55,80 @@ h2 {
 .mr-10 {
   margin-right: 10px;
 }
+
+.back-svg-1 {
+  position: absolute;
+  top: -220px;
+  right: 0;
+  @include lg {
+    display: none;
+  }
+}
+.back-svg-2 {
+  position: absolute;
+  bottom: -400px;
+  left: -130px;
+  @include lg {
+    display: none;
+  }
+}
+.back-svg-3 {
+  position: absolute;
+  top: 120px;
+  right: 0;
+  @include lg {
+    display: none;
+  }
+}
+.back-svg-4 {
+  position: absolute;
+  top: 400px;
+  left: -150px;
+  @include lg {
+    display: none;
+  }
+}
+.back-svg-5 {
+  position: absolute;
+  top: 400px;
+  right: 0;
+  @include lg {
+    display: none;
+  }
+}
+.back-svg-6 {
+  z-index: -1;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  @include lg {
+    display: none;
+  }
+}
+.back-svg-7 {
+  position: absolute;
+  top: -220px;
+  right: 0;
+  @include lg {
+    display: none;
+  }
+}
+.back-svg-8 {
+  position: absolute;
+  top: -220px;
+  right: 0;
+  @include lg {
+    display: none;
+  }
+}
+.back-svg-9 {
+  z-index: -1;
+  position: absolute;
+  bottom: -350px;
+  left: -50px;
+  transform: scale(-1, -1);
+  @include lg {
+    display: none;
+  }
+}

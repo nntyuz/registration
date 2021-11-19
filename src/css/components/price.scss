@@ -49,6 +49,12 @@
     }
     &:last-child {
       margin-right: 0;
+      @include xl {
+        height: 530px;
+      }
+      @include xs {
+        height: 230px;
+      }
     }
     @include xl {
       margin-right: 0;
@@ -62,7 +68,7 @@
       padding-top: 40px;
       padding-left: 0;
       margin-bottom: 0;
-      &:not(:last-child) {
+      &:first-child {
         margin-bottom: 25px;
       }
     }
@@ -148,6 +154,7 @@
     }
     @include xs {
       width: 100%;
+      height: 55px;
       margin-top: 50px;
       font-size: 14px;
       line-height: 16px;

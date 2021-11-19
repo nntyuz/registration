@@ -79,17 +79,30 @@
     font-size: 20px;
     line-height: 24px;
     color: var(--color-dark-2);
+    &:first-child {
+      margin-right: 40px;
+    }
+    @include xl {
+      &:first-child {
+        margin-right: 0;
+      }
+    }
     @include lg {
       max-width: 100%;
-      &:not(:last-child) {
-        margin-top: 40px;
+      &:first-child {
+        margin-bottom: 40px;
       }
     }
     @include xs {
+      height: 55px;
+      font-size: 12px;
       &:first-child {
         margin-bottom: 15px;
       }
     }
+  }
+  .act-button-container {
+    width: 100%;
   }
   .act-button {
     width: 520px;
@@ -129,6 +142,8 @@
       margin-top: 60px;
     }
     @include xs {
+      margin-top: 30px;
+      height: 55px;
       font-size: 14px;
       line-height: 16px;
       svg {
@@ -154,8 +169,8 @@
       }
     }
     @include xs {
-      font-size: 10px;
-      line-height: 14px;
+      font-size: 8px;
+      line-height: 10px;
     }
   }
 }

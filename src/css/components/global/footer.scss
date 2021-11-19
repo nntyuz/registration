@@ -1,9 +1,11 @@
 .global-footer {
+  position: static;
   background-image: url(./img/back-footer.png);
   width: 100%;
   margin-top: 190px;
   padding-top: 86px;
   padding-bottom: 86px;
+  z-index: 2;
   @include xl {
     background-size: cover;
     padding-top: 66px;
@@ -18,16 +20,22 @@
   .footer-container {
     justify-content: space-between;
     @include xl {
+      justify-content: center;
+      align-items: center;
+    }
+    @include lg {
       flex-direction: column;
-      justify-content: normal;
     }
   }
   .logo-container {
     @include xl {
-      margin-bottom: 40px;
-      justify-content: space-between;
+      align-items: center;
+    }
+    @include lg {
+      margin-bottom: 60px;
     }
     @include md {
+      margin-bottom: 40px;
       justify-content: center;
       align-items: center;
       flex-direction: column;
@@ -35,6 +43,11 @@
   }
   .logo {
     cursor: pointer;
+    @include xs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
   .logo-txt {
     font-weight: 300;
@@ -59,7 +72,14 @@
       }
     }
     @include xl {
-      margin-bottom: 40px;
+      a {
+        font-size: 12px;
+        line-height: 14px;
+        &:not(:last-child) {
+          margin-bottom: 16px;
+        }
+      }
+      margin-left: 60px;
     }
     @include md {
       margin-top: 40px;
@@ -73,15 +93,25 @@
   .social-container {
     @include xl {
       justify-content: space-between;
+      align-items: center;
+      margin-left: 60px;
+      height: 100%;
+    }
+    @include lg {
+      margin-bottom: 60px;
     }
     @include md {
+      margin-left: 0;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
+    @include xs {
+      margin-bottom: 40px;
+    }
   }
   .messengers {
-    @include xl {
+    @include md {
       margin-bottom: 40px;
     }
     @include xs {
@@ -94,6 +124,12 @@
     line-height: 19px;
     color: var(--color-light-1);
     margin-right: 30px;
+    @include xl {
+      display: none;
+    }
+    @include lg {
+      display: block;
+    }
   }
   .icon {
     display: flex;
@@ -102,15 +138,15 @@
     width: 36px;
     height: 34px;
     cursor: pointer;
-    border: 2px solid var(--color-yellow-2);
+    border: 2px solid var(--color-yellow-1);
     border-radius: 5px;
     svg {
-      fill: var(--color-yellow-2);
+      fill: var(--color-yellow-1);
     }
     &:hover {
-      border: 2px solid #ffdb6b;
+      border: 2px solid var(--color-yellow-2);
       svg {
-        fill: #ffdb6b;
+        fill: var(--color-yellow-2);
       }
     }
   }
@@ -119,7 +155,7 @@
     margin-left: 164px;
     align-items: center;
     @include xl {
-      margin-bottom: 40px;
+      margin-left: 60px;
       align-items: normal;
     }
     @include md {
@@ -137,9 +173,19 @@
       fill: var(--color-light-1);
       margin-right: 16px;
     }
+    &:hover {
+      color: var(--color-yellow-1);
+      svg {
+        fill: var(--color-yellow-1);
+      }
+    }
     @include md {
       font-size: 30px;
       line-height: 40px;
+    }
+    @include xs {
+      font-size: 27px;
+      line-height: 30px;
     }
   }
   .phone-txt {
@@ -156,11 +202,19 @@
       font-size: 18px;
       line-height: 20px;
     }
+    @include xs {
+      margin-top: 3px;
+      font-size: 14px;
+      line-height: 16px;
+    }
   }
   .footer-btn-container {
     @include xl {
-      width: 100%;
+      margin-left: 60px;
       justify-content: center;
+    }
+    @include md {
+      margin-left: 0;
     }
   }
   .footer-button {

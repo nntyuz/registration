@@ -3,6 +3,7 @@
   width: 100%;
   z-index: 2;
   padding-top: 20px;
+
   .burger {
     display: none;
     @include md {
@@ -78,30 +79,35 @@
       }
     }
   }
-  .phone-container {
-    cursor: pointer;
-  }
   .phone {
-    font-weight: 900;
-    font-size: 26px;
-    line-height: 36px;
-    color: var(--color-light-1);
-    margin-bottom: 6px;
     svg {
       fill: var(--color-light-1);
       margin-right: 16px;
-    }
-    &:hover {
-      color: var(--color-yellow-1);
-      svg {
-        fill: var(--color-yellow-1);
-      }
+      margin-bottom: 6px;
     }
     @include xs {
       display: none;
     }
   }
+  .phone-container {
+    a {
+      font-weight: 900;
+      font-size: 26px;
+      line-height: 36px;
+      color: var(--color-light-1);
+      margin-bottom: 6px;
+    }
+    &:hover {
+      a {
+        color: var(--color-yellow-1);
+      }
+      svg {
+        fill: var(--color-yellow-1);
+      }
+    }
+  }
   .phone-txt {
+    cursor: pointer;
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;

@@ -1,12 +1,13 @@
 const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
   loop: true,
+  centeredSlides: true,
   slidesPerView: 3,
   spaceBetween: 86,
   breakpoints: {
     600: {
-      slidesPerView: 3,
-      spaceBetween: 86,
+      slidesPerView: 1,
+      spaceBetween: 0,
     },
     1100: {
       slidesPerView: 3,
@@ -30,7 +31,7 @@ const toggleTabs = (target) => {
   })
   target.classList.add('active')
 
-  const tabsTxt = Array.from(document.querySelectorAll('.adv'))
+  const tabsTxt = Array.from(document.querySelectorAll('.advantages'))
   tabsTxt.forEach(e => {
     e.classList.remove('active')
     if(e.dataset.id === target.dataset.id) {
@@ -149,3 +150,40 @@ const period = new window.Select({
 }).componentMount({
 	el: document.querySelector('[ref="select-box-period"]')
 })
+
+const menu = document.querySelector('.menu-container')
+const close = document.querySelector('.close')
+const burger = document.querySelector('.burger')
+
+// const modal = document.querySelector('.modal-window')
+// const crossModal = document.querySelector('.close-modal')
+// const phoneLink = document.querySelector('.phone-txt')
+
+function openMenu() {
+  menu.classList.toggle('open')
+}
+
+function closeMenu() {
+  if(menu.classList.contains('open')) {
+    menu.classList.remove('open')
+  }
+}
+
+// function openModal() {
+//   modal.classList.toggle('open')
+// }
+
+// function closeModal() {
+//   if(modal.classList.contains('open')) {
+//     modal.classList.remove('open')
+//   }
+// }
+
+
+burger.addEventListener('click', openMenu)
+menu.addEventListener('click', closeMenu)
+close.addEventListener('click', closeMenu)
+anchor.addEventListener('click', closeMenu)
+
+// phoneLink.addEventListener('click', openModal)
+// crossModal.addEventListener('click', closeModal)

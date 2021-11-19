@@ -1,81 +1,89 @@
-<section class="application-section w-container" id="form">
-  <h2 class="app-title flex">Заполните анкету</h2>
-  <div class="app-container">
-    <div class="app-wrapper flex j-center">
-      <input
-        class="app-input"
-        type="text"
-        name="name"
-        placeholder="Ваша Фамилия:"
-      />
-      <input
-        class="app-input mr-0"
-        type="text"
-        name="name"
-        placeholder="Ваше Отчество:"
-      />
-    </div>
-    <div class="app-wrapper flex j-between">
-      <div ref="select-box-citizenship" class="app-input"></div>
-      <input
-        class="app-input date-input"
-        name="birth"
-        data-name="birth"
-        placeholder="Дата рождения:"
-      />
-      <input
-        class="app-input mr-0"
-        type="text"
-        name="place"
-        placeholder="Место рождения:"
-      />
-    </div>
-    <div class="app-wrapper flex j-between">
-      <div ref="select-box-document" class="app-input"></div>
-      <input
-        class="app-input"
-        type="number"
-        name="series"
-        placeholder="Серия и номер документа:"
-      />
-      <input
-        class="app-input mr-0"
-        type="number"
-        name="term"
-        placeholder="Срок действия паспорта:"
-      />
-    </div>
-    <div class="app-wrapper flex j-between">
-      <input
-        class="app-input"
-        type="text"
-        name="citizenship"
-        placeholder="Кем выдан документ:"
-      />
-      <input
-        class="app-input date-input"
-        data-name="date"
-        name="date"
-        placeholder="Дата выдачи документа:"
-      />
-      <div ref="select-box-period" class="app-input mr-0"></div>
-    </div>
-    <textarea
-      class="app-comment"
-      name="comment"
-      placeholder="Комментарий"
-    ></textarea>
-    <div class="flex column a-center j-center">
-      <button class="act-button flex a-center j-center">
-        Отправить
-        <include src="./src/icons/arrow-button.html"></include>
-        <include src="./src/icons/arrow-button.html"></include>
-        <include src="./src/icons/arrow-button.html"></include>
-      </button>
-      <div class="form-privacy flex">
-        Заполняя форму вы соглашаетесь с
-        <a href="#"> политикой конфеднциальности</a>
+<section class="application-section" id="form">
+  <div class="back-svg-8">
+    <include src="./src/icons/back-list.html"></include>
+  </div>
+  <div class="w-container">
+    <h2 class="app-title flex">Заполните анкету</h2>
+    <div class="app-container">
+      <div class="app-wrapper flex j-center">
+        <input
+          class="app-input"
+          type="text"
+          name="name"
+          placeholder="Ваша Фамилия:"
+        />
+        <input
+          class="app-input mr-0"
+          type="text"
+          name="name"
+          placeholder="Ваше Отчество:"
+        />
+      </div>
+      <div class="app-wrapper flex j-between">
+        <div ref="select-box-citizenship" class="app-input"></div>
+        <input
+          class="app-input date-input"
+          name="birth"
+          data-name="birth"
+          placeholder="Дата рождения:"
+        />
+        <input
+          class="app-input mr-0"
+          type="text"
+          name="place"
+          placeholder="Место рождения:"
+        />
+      </div>
+      <div class="app-wrapper flex j-between">
+        <div ref="select-box-document" class="app-input"></div>
+        <input
+          class="app-input"
+          type="number"
+          name="series"
+          placeholder="Серия и номер документа:"
+        />
+        <input
+          class="app-input mr-0"
+          type="number"
+          name="term"
+          placeholder="Срок действия паспорта:"
+        />
+      </div>
+      <div class="app-wrapper flex j-between">
+        <input
+          class="app-input"
+          type="text"
+          name="citizenship"
+          placeholder="Кем выдан документ:"
+        />
+        <input
+          class="app-input date-input"
+          data-name="date"
+          name="date"
+          placeholder="Дата выдачи документа:"
+        />
+        <div ref="select-box-period" class="app-input mr-0"></div>
+      </div>
+      <textarea
+        class="app-comment"
+        name="comment"
+        placeholder="Комментарий"
+      ></textarea>
+      <div class="flex column a-center j-center">
+        <button class="act-button flex a-center j-center">
+          Отправить
+          <include src="./src/icons/arrow-button.html"></include>
+          <include src="./src/icons/arrow-button.html"></include>
+          <include src="./src/icons/arrow-button.html"></include>
+        </button>
+        <div class="form-privacy flex">
+          Заполняя форму вы соглашаетесь с
+          <a href="#"> политикой конфеднциальности</a>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="back-svg-9">
+    <include src="./src/icons/back-list.html"></include>
   </div>
 </section>

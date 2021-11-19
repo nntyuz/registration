@@ -31,6 +31,9 @@
       &:active {
         color: var(--color-yellow-1);
       }
+      @include xs {
+        font-size: 24px;
+      }
     }
   }
 }

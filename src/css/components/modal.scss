@@ -42,19 +42,6 @@
     line-height: 24px;
     color: var(--color-dark-2);
     margin-bottom: 40px;
-    @include lg {
-      max-width: 100%;
-      &:first-child {
-        margin-bottom: 40px;
-      }
-    }
-    @include xs {
-      height: 55px;
-      font-size: 12px;
-      &:first-child {
-        margin-bottom: 15px;
-      }
-    }
   }
   .act-button {
     width: 520px;
@@ -87,7 +74,7 @@
       }
     }
     @include xl {
-      margin-top: 80px;
+      margin-top: 20px;
     }
     @include md {
       width: 100%;

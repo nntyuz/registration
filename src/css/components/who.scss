@@ -50,12 +50,16 @@
           color: var(--color-yellow-2);
         }
       }
+      @include xl {
+        width: 380px;
+        font-size: 20px;
+        line-height: 20px;
+      }
       @include lg {
         width: 380px;
         font-size: 20px;
         line-height: 20px;
       }
-
       @include md {
         display: block;
         font-size: 20px;
@@ -105,6 +109,11 @@
     line-height: 30px;
     color: var(--color-gray-2);
     margin-bottom: 56px;
+    @include xl {
+      font-size: 22px;
+      line-height: 25px;
+      margin-bottom: 35px;
+    }
     @include xs {
       font-size: 16px;
       line-height: 20px;
@@ -133,6 +142,10 @@
     &:last-child {
       margin-right: 0;
     }
+    @include xl {
+      font-size: 18px;
+      line-height: 20px;
+    }
     @include lg {
       margin-bottom: 40px;
       &:last-child {
@@ -157,6 +170,10 @@
     background-color: var(--color-yellow-1);
     margin-right: 12px;
     margin-top: 4px;
+    @include xl {
+      margin-top: 2px;
+      height: 14px;
+    }
     @include md {
       height: auto;
     }
@@ -179,6 +196,10 @@
     font-size: 25px;
     line-height: 30px;
     color: var(--color-dark-2);
+    @include xl {
+      font-size: 22px;
+      line-height: 25px;
+    }
     @include md {
       margin-top: 100px;
     }
@@ -193,8 +214,10 @@
     justify-content: space-between;
     align-items: flex-end;
     @include xl {
-      flex-direction: column;
       align-items: normal;
+    }
+    @include lg {
+      flex-wrap: wrap;
     }
     @include md {
       flex-wrap: wrap;
@@ -206,6 +229,10 @@
     line-height: 30px;
     color: var(--color-dark-2);
     margin-bottom: 70px;
+    @include xl {
+      font-size: 22px;
+      line-height: 25px;
+    }
     @include md {
       margin-bottom: 60px;
     }
@@ -217,8 +244,18 @@
       margin-bottom: 30px;
     }
   }
+  .w-100 {
+    width: 100%;
+  }
   .number-container {
     justify-content: space-between;
+    @include xl {
+      justify-content: normal;
+    }
+    @include lg {
+      width: 100%;
+      justify-content: space-between;
+    }
     @include md {
       flex-direction: column;
     }
@@ -235,12 +272,20 @@
   }
   .doc-txt {
     flex-shrink: 0;
-    height: 48px;
     font-size: 20px;
     line-height: 24px;
     font-weight: 300;
     color: var(--color-dark-2);
     margin-left: 72px;
+    @include xl {
+      height: auto;
+      font-size: 18px;
+      line-height: 22px;
+      max-width: 280px;
+      br {
+        display: none;
+      }
+    }
     @include lg {
       margin-left: 55px;
     }
@@ -253,6 +298,9 @@
       line-height: 14px;
     }
   }
+  .mt-10 {
+    margin-top: 12px;
+  }
   .mb-2 {
     margin-bottom: 52px;
     @include md {
@@ -264,12 +312,20 @@
     margin-right: 65px;
     &.mr-doc {
       margin-right: 230px;
+      @include xl {
+        margin-right: 0;
+        margin-left: 95px;
+      }
       @include lg {
-        margin-right: 175px;
+        margin-right: 128px;
+        margin-left: 0;
       }
       @include md {
         margin-right: 0;
       }
+    }
+    @include lg {
+      margin-right: 0;
     }
     @include md {
       margin-right: 0;
@@ -297,6 +353,10 @@
       align-items: center;
       justify-content: center;
     }
+    @include lg {
+      margin-top: 80px;
+      width: 100%;
+    }
     @include md {
       display: block;
     }
@@ -309,7 +369,6 @@
     padding: 7px;
     @include xl {
       width: 448px;
-      margin-top: 100px;
     }
     @include md {
       width: 100%;

@@ -1,8 +1,7 @@
 const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
   loop: true,
-  centeredSlides: true,
-  slidesPerView: 3,
+  slidesPerView: 1,
   spaceBetween: 86,
   breakpoints: {
     600: {
@@ -26,7 +25,7 @@ const swiper = new Swiper('.swiper', {
 const toggleTabs = (target) => {
   const tabs = Array.from(document.querySelectorAll('.who-tabs .tab'))
 
-  tabs.forEach(e =>  {
+  tabs.forEach(e => {
     e.classList.remove('active')
   })
   target.classList.add('active')
@@ -34,7 +33,7 @@ const toggleTabs = (target) => {
   const tabsTxt = Array.from(document.querySelectorAll('.advantages'))
   tabsTxt.forEach(e => {
     e.classList.remove('active')
-    if(e.dataset.id === target.dataset.id) {
+    if (e.dataset.id === target.dataset.id) {
       e.classList.add('active')
     }
   })
@@ -56,7 +55,7 @@ const windowClick = ($evt) => {
   if (target.closest('.tab')) {
     toggleTabs(target)
   } else if (target.closest('.qa-container')) {
-     target.closest('.qa-container').classList.toggle('active')
+    target.closest('.qa-container').classList.toggle('active')
   } else if (target.closest('.anchor-link')) {
     scrollTo(target)
   } else if (target.closest('.footer-button')) {
@@ -89,7 +88,7 @@ initDatepickers()
 
 const citizenship = new window.Select({
   placeholder: 'Выберите гражданство:',
-	dataset: [
+  dataset: [
     {
       value: 'Россия'
     },
@@ -103,15 +102,15 @@ const citizenship = new window.Select({
       value: 'Лицо без гражданства'
     }
   ],
-	selected: '',
+  selected: '',
 }).componentMount({
-	el: document.querySelector('[ref="select-box-citizenship"]')
+  el: document.querySelector('[ref="select-box-citizenship"]')
 })
 
 
 const documentType = new window.Select({
   placeholder: 'Выберите документ:',
-	dataset: [
+  dataset: [
     {
       value: 'Паспорт'
     },
@@ -122,14 +121,14 @@ const documentType = new window.Select({
       value: 'Другое'
     }
   ],
-	selected: '',
+  selected: '',
 }).componentMount({
-	el: document.querySelector('[ref="select-box-document"]')
+  el: document.querySelector('[ref="select-box-document"]')
 })
 
 const period = new window.Select({
   placeholder: 'Выберите срок регистрации:',
-	dataset: [
+  dataset: [
     {
       value: '3 месяца'
     },
@@ -146,44 +145,62 @@ const period = new window.Select({
       value: '5 лет'
     }
   ],
-	selected: '',
+  selected: '',
 }).componentMount({
-	el: document.querySelector('[ref="select-box-period"]')
+  el: document.querySelector('[ref="select-box-period"]')
 })
 
 const menu = document.querySelector('.menu-container')
 const close = document.querySelector('.close')
 const burger = document.querySelector('.burger')
 
-// const modal = document.querySelector('.modal-window')
-// const crossModal = document.querySelector('.close-modal')
-// const phoneLink = document.querySelector('.phone-txt')
+const modal = document.querySelector('.modal-window')
+const crossModal = document.querySelector('.close-modal')
+const phoneLink = document.querySelector('.phone-txt')
+const modalBtn = document.querySelector('#modal-button')
+
 
 function openMenu() {
   menu.classList.toggle('open')
 }
 
 function closeMenu() {
-  if(menu.classList.contains('open')) {
+  if (menu.classList.contains('open')) {
     menu.classList.remove('open')
   }
 }
 
-// function openModal() {
-//   modal.classList.toggle('open')
-// }
 
-// function closeModal() {
-//   if(modal.classList.contains('open')) {
-//     modal.classList.remove('open')
-//   }
-// }
+function closeModal() {
+  if (modal.classList.contains('open')) {
+    modal.classList.remove('open')
+  }
+}
 
 
 burger.addEventListener('click', openMenu)
 menu.addEventListener('click', closeMenu)
 close.addEventListener('click', closeMenu)
-anchor.addEventListener('click', closeMenu)
 
-// phoneLink.addEventListener('click', openModal)
-// crossModal.addEventListener('click', closeModal)
+phoneLink.addEventListener('click', function e () {modal.classList.toggle('open')});
+crossModal.addEventListener('click', closeModal)
+modalBtn.addEventListener('click', function e () {modal.classList.remove('open')})
+
+
+
+function onEntry(entry) {
+  entry.forEach(change => {
+    if (change.isIntersecting) {
+     change.target.classList.add('steps-show');
+    }
+  });
+}
+
+let options = {
+  threshold: [0.5] };
+let observer = new IntersectionObserver(onEntry, options);
+let elements = document.querySelectorAll('.steps');
+
+for (let elm of elements) {
+  observer.observe(elm);
+}

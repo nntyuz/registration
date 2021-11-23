@@ -36,13 +36,17 @@
   }
   .mb-1 {
     margin-bottom: 0;
+    @include lg {
+      margin-bottom: 40px;
+    }
   }
   .steps {
+    opacity: 0;
+    transform: translateY(20px);
     font-weight: 700;
     font-size: 108px;
     line-height: 130px;
     color: var(--color-yellow-1);
-    opacity: 0.4;
     margin-bottom: 202px;
     &:first-child {
       margin-bottom: 428px;
@@ -53,6 +57,11 @@
     }
     @include lg {
       display: none;
+    }
+    &.steps-show {
+      opacity: 0.4;
+      transition: 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      transform: translateY(0%);
     }
   }
   .steps-line {
@@ -93,6 +102,12 @@
     &:first-child {
       margin-top: 30px;
     }
+    @include xl {
+      max-width: 760px;
+    }
+    @include lg {
+      max-width: 100%;
+    }
     @include xs {
       margin-top: 60px;
       &:first-child {
@@ -107,6 +122,9 @@
     margin-top: 25px;
     margin-bottom: 20px;
     color: var(--color-dark-2);
+    @include xl {
+      margin-bottom: 12px;
+    }
     @include xs {
       font-size: 16px;
       line-height: 20px;
@@ -122,6 +140,13 @@
     margin-bottom: 55px;
     &:last-child {
       margin-bottom: 0;
+    }
+    @include xl {
+      font-size: 18px;
+      line-height: 22px;
+      br {
+        display: none;
+      }
     }
     @include lg {
       br {
@@ -186,7 +211,7 @@
   .service {
     justify-content: space-between;
     align-items: center;
-    @include xl {
+    @include lg {
       flex-direction: column;
       align-items: normal;
       justify-content: normal;
@@ -228,7 +253,6 @@
     }
   }
   .service-container {
-    margin-top: 40px;
     @include xs {
       margin-top: 20px;
     }
@@ -237,6 +261,9 @@
     height: 96px;
     width: 2px;
     background-color: var(--color-yellow-1);
+    @include xl {
+      height: auto;
+    }
     @include md {
       display: none;
     }
@@ -247,6 +274,11 @@
     line-height: 24px;
     color: var(--color-dark-2);
     margin-left: 41px;
+    @include xl {
+      margin-left: 30px;
+      font-size: 18px;
+      line-height: 22px;
+    }
     @include md {
       margin-left: 0;
     }

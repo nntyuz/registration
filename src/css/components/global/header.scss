@@ -37,6 +37,10 @@
         border-bottom: 1px solid var(--color-light-1);
       }
     }
+    @include xl {
+      font-size: 14px;
+      line-height: 16px;
+    }
     @include md {
       display: none;
     }
@@ -52,6 +56,11 @@
     line-height: 19px;
     color: var(--color-light-1);
     margin-right: 30px;
+    @include xl {
+      font-size: 14px;
+      line-height: 16px;
+      margin-right: 20px;
+    }
     @include lg {
       display: none;
     }
@@ -80,10 +89,15 @@
     }
   }
   .phone {
+    display: flex;
+    align-items: flex-end;
     svg {
       fill: var(--color-light-1);
       margin-right: 16px;
-      margin-bottom: 6px;
+      @include xl {
+        width: 20px;
+        height: 20px;
+      }
     }
     @include xs {
       display: none;
@@ -95,7 +109,9 @@
       font-size: 26px;
       line-height: 36px;
       color: var(--color-light-1);
-      margin-bottom: 6px;
+      @include xl {
+        font-size: 23px;
+      }
     }
     &:hover {
       a {
@@ -114,8 +130,13 @@
     color: var(--color-yellow-1);
     border-bottom: 1px solid transparent;
     transition: 300ms;
+    max-width: 170px;
     &:hover {
       border-bottom: 1px solid var(--color-yellow-1);
+    }
+    @include xl {
+      font-size: 14px;
+      line-height: 16px;
     }
     @include md {
       display: none;

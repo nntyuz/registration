@@ -23,6 +23,10 @@
     text-align: center;
     letter-spacing: 0.01em;
     margin-bottom: 70px;
+    @include xl {
+      font-size: 66px;
+      margin-bottom: 60px;
+    }
     @include lg {
       font-size: 60px;
     }
@@ -60,12 +64,16 @@
       }
     }
     .txt {
-      font-weight: 600;
+      font-weight: 700;
       font-size: 20px;
       line-height: 24px;
       text-align: center;
       color: var(--color-light-1);
       margin-top: 20px;
+      @include xl {
+        font-size: 18px;
+        line-height: 22px;
+      }
       @include md {
         text-align: left;
         margin-left: 24px;

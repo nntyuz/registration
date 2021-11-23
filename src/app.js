@@ -6,10 +6,10 @@ const swiper = new Swiper('.swiper', {
   breakpoints: {
     600: {
       slidesPerView: 1,
-      spaceBetween: 0,
+      spaceBetween: 86,
     },
     1100: {
-      slidesPerView: 3,
+      slidesPerView: 1,
       spaceBetween: 86,
     }
   },
@@ -150,6 +150,7 @@ const period = new window.Select({
   el: document.querySelector('[ref="select-box-period"]')
 })
 
+// Бургер и модалка
 const menu = document.querySelector('.menu-container')
 const close = document.querySelector('.close')
 const burger = document.querySelector('.burger')
@@ -157,7 +158,6 @@ const burger = document.querySelector('.burger')
 const modal = document.querySelector('.modal-window')
 const crossModal = document.querySelector('.close-modal')
 const phoneLink = document.querySelector('.phone-txt')
-const modalBtn = document.querySelector('#modal-button')
 
 
 function openMenu() {
@@ -184,10 +184,9 @@ close.addEventListener('click', closeMenu)
 
 phoneLink.addEventListener('click', function e () {modal.classList.toggle('open')});
 crossModal.addEventListener('click', closeModal)
-modalBtn.addEventListener('click', function e () {modal.classList.remove('open')})
 
 
-
+// Анимация 
 function onEntry(entry) {
   entry.forEach(change => {
     if (change.isIntersecting) {
@@ -204,3 +203,29 @@ let elements = document.querySelectorAll('.steps');
 for (let elm of elements) {
   observer.observe(elm);
 }
+
+// Отправка данных на сервер
+function send(event, php){
+  console.log("Отправка запроса");
+  event.preventDefault ? event.preventDefault() : event.returnValue = false;
+  var req = new XMLHttpRequest();
+  req.open('POST', php, true);
+  req.onload = function() {
+    if (req.status >= 200 && req.status < 400) {
+    json = JSON.parse(this.response); 
+        console.log(json);
+          
+        if (json.result == "success") {
+          // Если сообщение отправлено
+          alert("Сообщение отправлено");
+        } else {
+          // Если произошла ошибка
+          alert("Ошибка. Сообщение не отправлено");
+        }
+      // Если не удалось связаться с php файлом
+      } else {alert("Ошибка сервера. Номер: "+req.status);}}; 
+  
+  // Если не удалось отправить запрос. Стоит блок на хостинге
+  req.onerror = function() {alert("Ошибка отправки запроса");};
+  req.send(new FormData(event.target));
+  }

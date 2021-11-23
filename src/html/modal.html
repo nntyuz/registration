@@ -3,15 +3,27 @@
     <include src="./src/icons/delete-icon.html"></include>
   </div>
   <div class="modal-wrapper flex a-center j-center">
-    <div class="modal-container flex a-center column">
+    <form
+      enctype="multipart/form-data"
+      method="post"
+      id="form"
+      onsubmit="send(event, 'send.php')"
+      class="modal-container flex a-center column"
+    >
+      <h2 class="modal-title">Получить косультацию</h2>
       <input class="modal-input" type="text" placeholder="Ваше имя" />
       <input class="modal-input" type="tel" placeholder="Ваш телефон" />
-      <button id="modal-button" class="act-button flex a-center j-center">
+      <button
+        value="Свяжитесь со мной"
+        type="submit"
+        id="modal-button"
+        class="act-button flex a-center j-center"
+      >
         Свяжитесь со мной
         <include src="./src/icons/arrow-button.html"></include>
         <include src="./src/icons/arrow-button.html"></include>
         <include src="./src/icons/arrow-button.html"></include>
       </button>
-    </div>
+    </form>
   </div>
 </div>

@@ -1,6 +1,6 @@
 .form-section {
-  // background-image: url(./img/city.png);
-  object-fit: scale-down;
+  background-image: url(./img/city.png);
+  background-size: cover;
   padding-top: 100px;
   padding-bottom: 100px;
   @include xl {
@@ -53,9 +53,7 @@
     margin-top: 100px;
     justify-content: space-between;
     @include xl {
-      flex-wrap: wrap;
       margin-top: 80px;
-      align-items: center;
       justify-content: center;
     }
     @include md {
@@ -81,8 +79,9 @@
       margin-right: 40px;
     }
     @include xl {
+      margin-right: 20px;
       &:first-child {
-        margin-right: 0;
+        margin-right: 20px;
       }
     }
     @include lg {
@@ -103,7 +102,8 @@
     width: 100%;
   }
   .act-button {
-    width: 520px;
+    width: 100%;
+    max-width: 520px;
     height: 84px;
     border-radius: 50px;
     background: linear-gradient(
@@ -120,9 +120,6 @@
       transition: 300ms;
       &:first-child {
         margin-left: 41px;
-        @include xs {
-          margin-left: 30px;
-        }
       }
     }
     &:hover {
@@ -133,7 +130,8 @@
       }
     }
     @include xl {
-      margin-top: 80px;
+      font-size: 22px;
+      line-height: 20px;
     }
     @include md {
       width: 100%;
@@ -153,8 +151,8 @@
   }
   .form-privacy {
     font-weight: 300;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 12px;
+    line-height: 14px;
     color: #505050;
     margin-top: 14px;
     a {
@@ -173,21 +171,20 @@
   }
   .input-wrapper {
     width: 100%;
-    @include xl {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-    }
+    margin-right: 20px;
   }
   .form-link {
     cursor: pointer;
-    text-decoration: underline;
     color: var(--color-yellow-1);
     font-size: 16px;
     line-height: 16px;
     padding-top: 20px;
-    @include xl {
-      padding-bottom: 20px;
+    &:hover {
+      text-decoration: underline;
+      color: var(--color-yellow-2);
+    }
+    &:active {
+      opacity: 0.6;
     }
     @include lg {
       padding-top: 0;

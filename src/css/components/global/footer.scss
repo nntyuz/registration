@@ -19,6 +19,7 @@
   }
   .footer-container {
     justify-content: space-between;
+    align-items: center;
     @include xl {
       justify-content: center;
       align-items: center;
@@ -28,6 +29,7 @@
     }
   }
   .logo-container {
+    align-items: center;
     @include xl {
       align-items: center;
     }

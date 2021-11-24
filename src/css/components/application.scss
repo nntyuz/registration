@@ -1,8 +1,12 @@
 .application-section {
+  display: none;
   position: relative;
   padding-top: 100px;
   @include xl {
     padding-top: 60px;
+  }
+  &.open {
+    display: block;
   }
   .app-container-messeng {
     text-align: center;

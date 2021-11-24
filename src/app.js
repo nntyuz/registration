@@ -185,6 +185,17 @@ close.addEventListener('click', closeMenu)
 phoneLink.addEventListener('click', function e () {modal.classList.toggle('open')});
 crossModal.addEventListener('click', closeModal)
 
+const formLink = document.querySelector('.form-link')
+const application = document.querySelector('.application-section')
+
+console.log(formLink);
+console.log(application);
+
+function openFormLink () {
+ application.classList.toggle('open')
+}
+
+formLink.addEventListener('click', openFormLink)
 
 // Анимация 
 function onEntry(entry) {

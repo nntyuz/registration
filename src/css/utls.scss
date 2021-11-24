@@ -118,6 +118,7 @@ h2 {
 }
 .back-svg-8 {
   position: absolute;
+  z-index: -1;
   top: -220px;
   right: 0;
   @include lg {

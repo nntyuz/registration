@@ -1,18 +1,15 @@
 .form-section {
-  background-image: url(./img/city.png);
-  background-size: cover;
+  // background-image: url(./img/city.png);
+  object-fit: scale-down;
   padding-top: 100px;
-  padding-bottom: 200px;
+  padding-bottom: 100px;
   @include xl {
     padding-top: 0;
-    padding-bottom: 100px;
   }
   @include lg {
     padding-top: 150px;
-    padding-bottom: 100px;
   }
   @include md {
-    padding-bottom: 100px;
     padding-top: 100px;
   }
   @include xs {
@@ -58,7 +55,8 @@
     @include xl {
       flex-wrap: wrap;
       margin-top: 80px;
-      justify-content: space-evenly;
+      align-items: center;
+      justify-content: center;
     }
     @include md {
       margin-top: 60px;
@@ -171,6 +169,35 @@
     @include xs {
       font-size: 8px;
       line-height: 10px;
+    }
+  }
+  .input-wrapper {
+    width: 100%;
+    @include xl {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+  .form-link {
+    cursor: pointer;
+    text-decoration: underline;
+    color: var(--color-yellow-1);
+    font-size: 16px;
+    line-height: 16px;
+    padding-top: 20px;
+    @include xl {
+      padding-bottom: 20px;
+    }
+    @include lg {
+      padding-top: 0;
+      padding-bottom: 40px;
+    }
+    @include xs {
+      font-size: 12px;
+      line-height: 14px;
+      padding-top: 10px;
+      padding-bottom: 25px;
     }
   }
 }

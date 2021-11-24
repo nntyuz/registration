@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "js-datepicker": "^5.18.0",
-    "posthtml": "^0.16.5"
+    "posthtml": "^0.16.5",
+    "sweetalert2": "^11.2.0"
   }
 }

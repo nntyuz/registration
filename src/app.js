@@ -181,7 +181,38 @@ burger.addEventListener('click', openMenu)
 menu.addEventListener('click', closeMenu)
 close.addEventListener('click', closeMenu)
 
-phoneLink.addEventListener('click', function e () {modal.classList.toggle('open')});
+phoneLink.addEventListener('click', function () {Swal.fire({
+  html: `
+  <div class="modal-window">
+<div class="close-modal flex">
+  <include src="./src/icons/delete-icon.html"></include>
+</div>
+<div class="modal-wrapper flex a-center j-center">
+  <form
+    enctype="multipart/form-data"
+    method="post"
+    id="form"
+    onsubmit="send(event, './phpmailer/send.php')"
+    class="modal-container flex a-center column"
+  >
+    <h2 class="modal-title">Получить косультацию</h2>
+    <input class="modal-input" type="text" placeholder="Ваше имя" />
+    <input class="modal-input" type="tel" placeholder="Ваш телефон" />
+    <button
+      value="Свяжитесь со мной"
+      type="submit"
+      id="modal-button"
+      class="act-button flex a-center j-center"
+    >
+      Свяжитесь со мной
+      <include src="./src/icons/arrow-button.html"></include>
+      <include src="./src/icons/arrow-button.html"></include>
+      <include src="./src/icons/arrow-button.html"></include>
+    </button>
+  </form>
+</div>
+</div>`
+})});
 crossModal.addEventListener('click', closeModal)
 
 const formLink = document.querySelector('.form-link')

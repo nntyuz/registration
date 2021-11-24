@@ -56,6 +56,9 @@
       margin-top: 80px;
       justify-content: center;
     }
+    @include lg {
+      flex-direction: column;
+    }
     @include md {
       margin-top: 60px;
     }
@@ -132,6 +135,9 @@
     @include xl {
       font-size: 22px;
       line-height: 20px;
+    }
+    @include lg {
+      margin-top: 40px;
     }
     @include md {
       width: 100%;

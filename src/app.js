@@ -1,5 +1,4 @@
 const swiper = new Swiper('.swiper', {
-  direction: 'horizontal',
   loop: true,
   slidesPerView: 1,
   spaceBetween: 0,
@@ -187,15 +186,16 @@ crossModal.addEventListener('click', closeModal)
 
 const formLink = document.querySelector('.form-link')
 const application = document.querySelector('.application-section')
+const formBtn = document.querySelector('#form-button')
 
-console.log(formLink);
-console.log(application);
 
 function openFormLink () {
  application.classList.toggle('open')
 }
 
 formLink.addEventListener('click', openFormLink)
+formBtn.addEventListener('click', openFormLink)
+
 
 // Анимация 
 function onEntry(entry) {

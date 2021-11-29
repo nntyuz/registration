@@ -10,10 +10,10 @@
     padding-top: 150px;
   }
   @include md {
-    padding-top: 100px;
+    padding-top: 200px;
   }
   @include xs {
-    padding-top: 60px;
+    padding-top: 200px;
     padding-bottom: 60px;
   }
   .form-wrapper {
@@ -133,6 +133,7 @@
       }
     }
     @include xl {
+      margin-top: 0;
       font-size: 22px;
       line-height: 20px;
     }

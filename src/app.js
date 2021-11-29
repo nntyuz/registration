@@ -1,15 +1,16 @@
 const swiper = new Swiper('.swiper', {
   loop: true,
   slidesPerView: 1,
+  centeredSlides: true,
   spaceBetween: 0,
   breakpoints: {
     600: {
       slidesPerView: 1,
-      spaceBetween: 86,
+      spaceBetween: 0,
     },
     1100: {
-      slidesPerView: 1,
-      spaceBetween: 86,
+      slidesPerView: 3,
+      spaceBetween: 50,
     }
   },
 
@@ -182,19 +183,15 @@ menu.addEventListener('click', closeMenu)
 close.addEventListener('click', closeMenu)
 
 phoneLink.addEventListener('click', function () {Swal.fire({
-  html: `
-  <div class="modal-window">
-<div class="close-modal flex">
-  <include src="./src/icons/delete-icon.html"></include>
-</div>
-<div class="modal-wrapper flex a-center j-center">
-  <form
+  width: 1000,
+  showConfirmButton: false,
+  showCloseButton: true,
+  html: `<form
     enctype="multipart/form-data"
     method="post"
     id="form"
     onsubmit="send(event, './phpmailer/send.php')"
-    class="modal-container flex a-center column"
-  >
+    class="modal-container flex a-center column">
     <h2 class="modal-title">Получить косультацию</h2>
     <input class="modal-input" type="text" placeholder="Ваше имя" />
     <input class="modal-input" type="tel" placeholder="Ваш телефон" />
@@ -202,18 +199,41 @@ phoneLink.addEventListener('click', function () {Swal.fire({
       value="Свяжитесь со мной"
       type="submit"
       id="modal-button"
-      class="act-button flex a-center j-center"
-    >
+      class="act-button flex a-center j-center">
       Свяжитесь со мной
-      <include src="./src/icons/arrow-button.html"></include>
-      <include src="./src/icons/arrow-button.html"></include>
-      <include src="./src/icons/arrow-button.html"></include>
+      <svg
+        width="7"
+        height="11"
+        viewBox="0 0 7 11"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M5.85379 6.33438C6.11289 6.07528 6.11289 5.6552 5.85379 5.3961L1.63157 1.17384C1.37247 0.914742 0.952388 0.914741 0.693289 1.17384C0.43419 1.43293 0.434189 1.85302 0.693285 2.11211L4.44638 5.86523L0.693257 9.61832C0.434159 9.87742 0.434157 10.2975 0.693254 10.5566C0.952351 10.8157 1.37243 10.8157 1.63153 10.5566L5.85379 6.33438ZM4.72119 6.5287L5.38465 6.5287L5.38466 5.20178L4.72119 5.20177L4.72119 6.5287Z"
+        fill="#3E3E3E"/>
+      </svg>
+      <svg
+        width="7"
+        height="11"
+        viewBox="0 0 7 11"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M5.85379 6.33438C6.11289 6.07528 6.11289 5.6552 5.85379 5.3961L1.63157 1.17384C1.37247 0.914742 0.952388 0.914741 0.693289 1.17384C0.43419 1.43293 0.434189 1.85302 0.693285 2.11211L4.44638 5.86523L0.693257 9.61832C0.434159 9.87742 0.434157 10.2975 0.693254 10.5566C0.952351 10.8157 1.37243 10.8157 1.63153 10.5566L5.85379 6.33438ZM4.72119 6.5287L5.38465 6.5287L5.38466 5.20178L4.72119 5.20177L4.72119 6.5287Z"
+        fill="#3E3E3E"/>
+      </svg>
+      <svg
+        width="7"
+        height="11"
+        viewBox="0 0 7 11"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M5.85379 6.33438C6.11289 6.07528 6.11289 5.6552 5.85379 5.3961L1.63157 1.17384C1.37247 0.914742 0.952388 0.914741 0.693289 1.17384C0.43419 1.43293 0.434189 1.85302 0.693285 2.11211L4.44638 5.86523L0.693257 9.61832C0.434159 9.87742 0.434157 10.2975 0.693254 10.5566C0.952351 10.8157 1.37243 10.8157 1.63153 10.5566L5.85379 6.33438ZM4.72119 6.5287L5.38465 6.5287L5.38466 5.20178L4.72119 5.20177L4.72119 6.5287Z"
+        fill="#3E3E3E"/>
+      </svg>
     </button>
-  </form>
-</div>
-</div>`
+  </form>`
 })});
-crossModal.addEventListener('click', closeModal)
 
 const formLink = document.querySelector('.form-link')
 const application = document.querySelector('.application-section')
@@ -270,4 +290,4 @@ function send(event, php){
   // Если не удалось отправить запрос. Стоит блок на хостинге
   req.onerror = function() {alert("Ошибка отправки запроса");};
   req.send(new FormData(event.target));
-  }
+}

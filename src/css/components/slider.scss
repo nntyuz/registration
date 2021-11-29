@@ -1,34 +1,35 @@
 .slider-section {
   position: relative;
   padding-top: 220px;
-  padding-bottom: 180px;
   @include lg {
     padding-top: 120px;
   }
   @include xs {
     padding-top: 60px;
   }
-  .slider-title {
-    margin-bottom: 75px;
-    @include lg {
-      margin-bottom: 60px;
-    }
-    @include xs {
-      margin-bottom: 30px;
-    }
+  .swiper {
+    height: 808px;
   }
   .slide {
-    background-image: url(./img/device.png);
-    height: 808px !important;
-    width: 383px !important;
-    flex-shrink: 0;
-    user-select: none;
-    margin-right: 86px;
+    height: 100%;
+    background: center center url(./img/device.png) no-repeat;
+    background-size: contain;
     padding-left: 10px;
     padding-right: 10px;
+    user-select: none;
     img {
-      max-width: 364px;
-      max-height: 630px;
+      display: block;
+      max-width: 100%;
+    }
+    @include lg {
+      img {
+        max-width: 250px;
+      }
+    }
+    @include md {
+      img {
+        max-width: 350px;
+      }
     }
   }
   .slider-wrapper {
@@ -53,7 +54,7 @@
     @include lg {
       position: absolute;
       z-index: 2;
-      bottom: -150px;
+      bottom: -20px;
       right: 0;
       &:first-child {
         margin-left: 40px;
@@ -62,6 +63,14 @@
       &:last-child {
         margin-right: 40px;
       }
+    }
+    @include md {
+      top: 50%;
+      bottom: 0;
+    }
+    @include sm {
+      top: auto;
+      bottom: -150px;
     }
   }
 }

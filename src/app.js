@@ -1,6 +1,3 @@
-console.log('swal', Swal);
-
-
 const swiper = new Swiper('.swiper', {
   loop: true,
   slidesPerView: 1,
@@ -14,7 +11,7 @@ const swiper = new Swiper('.swiper', {
     1100: {
       slidesPerView: 3,
       spaceBetween: 50,
-    }
+    },
   },
 
   // Navigation arrows
@@ -22,25 +19,23 @@ const swiper = new Swiper('.swiper', {
     nextEl: '.next',
     prevEl: '.prev',
   },
-});
-
+})
 
 const toggleTabs = (target) => {
   const tabs = Array.from(document.querySelectorAll('.who-tabs .tab'))
 
-  tabs.forEach(e => {
+  tabs.forEach((e) => {
     e.classList.remove('active')
   })
   target.classList.add('active')
 
   const tabsTxt = Array.from(document.querySelectorAll('.advantages'))
-  tabsTxt.forEach(e => {
+  tabsTxt.forEach((e) => {
     e.classList.remove('active')
     if (e.dataset.id === target.dataset.id) {
       e.classList.add('active')
     }
   })
-
 }
 
 const scrollTo = (target) => {
@@ -49,7 +44,7 @@ const scrollTo = (target) => {
 
   window.scrollTo({
     top: anchor.offsetTop,
-    behavior: 'smooth'
+    behavior: 'smooth',
   })
 }
 
@@ -64,94 +59,44 @@ const windowClick = ($evt) => {
   } else if (target.closest('.footer-button')) {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
   }
 }
 
 const initDatepickers = () => {
+  console.log('initDatepickers')
+
   const datepickers = Array.from(document.querySelectorAll('.date-input'))
 
-  datepickers.forEach(e => {
+  datepickers.forEach((e) => {
     const inputDataName = e.dataset.name
 
     window.datepicker(`input[name=${inputDataName}]`, {
       customDays: ['Пн', 'Вт', 'Ср', 'Чт', 'Пн', 'Сб', 'Вс'],
-      customMonths: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+      customMonths: [
+        'Январь',
+        'Февраль',
+        'Март',
+        'Апрель',
+        'Май',
+        'Июнь',
+        'Июль',
+        'Август',
+        'Сентябрь',
+        'Октябрь',
+        'Ноябрь',
+        'Декабрь',
+      ],
       formatter: (input, date, instance) => {
         const value = date.toLocaleDateString()
         input.value = value // => '1/1/2099'
-      }
+      },
     })
   })
 }
 
 window.addEventListener('click', windowClick)
-initDatepickers()
-
-const citizenship = new window.Select({
-  placeholder: 'Выберите гражданство:',
-  dataset: [
-    {
-      value: 'Россия'
-    },
-    {
-      value: 'Иностранное'
-    },
-    {
-      value: 'Другое'
-    },
-    {
-      value: 'Лицо без гражданства'
-    }
-  ],
-  selected: '',
-}).componentMount({
-  el: document.querySelector('[ref="select-box-citizenship"]')
-})
-
-
-const documentType = new window.Select({
-  placeholder: 'Выберите документ:',
-  dataset: [
-    {
-      value: 'Паспорт'
-    },
-    {
-      value: 'Свидетельство о рождении,'
-    },
-    {
-      value: 'Другое'
-    }
-  ],
-  selected: '',
-}).componentMount({
-  el: document.querySelector('[ref="select-box-document"]')
-})
-
-const period = new window.Select({
-  placeholder: 'Выберите срок регистрации:',
-  dataset: [
-    {
-      value: '3 месяца'
-    },
-    {
-      value: '6 месяца'
-    },
-    {
-      value: '1 год'
-    },
-    {
-      value: '3 года'
-    },
-    {
-      value: '5 лет'
-    }
-  ],
-  selected: '',
-}).componentMount({
-  el: document.querySelector('[ref="select-box-period"]')
-})
 
 // Бургер и модалка
 const menu = document.querySelector('.menu-container')
@@ -161,7 +106,6 @@ const burger = document.querySelector('.burger')
 const modal = document.querySelector('.modal-window')
 const crossModal = document.querySelector('.close-modal')
 const phoneLink = document.querySelector('.phone-txt')
-
 
 function openMenu() {
   menu.classList.toggle('open')
@@ -173,23 +117,22 @@ function closeMenu() {
   }
 }
 
-
 function closeModal() {
   if (modal.classList.contains('open')) {
     modal.classList.remove('open')
   }
 }
 
-
 burger.addEventListener('click', openMenu)
 menu.addEventListener('click', closeMenu)
 close.addEventListener('click', closeMenu)
 
-phoneLink.addEventListener('click', function () {Swal.fire({
-  width: 900,
-  showConfirmButton: false,
-  showCloseButton: true,
-  html: `<form
+phoneLink.addEventListener('click', function () {
+  Swal.fire({
+    width: 900,
+    showConfirmButton: false,
+    showCloseButton: true,
+    html: `<form
     enctype="multipart/form-data"
     method="post"
     id="form"
@@ -235,25 +178,25 @@ phoneLink.addEventListener('click', function () {Swal.fire({
         fill="#3E3E3E"/>
       </svg>
     </button>
-  </form>`
-})});
+  </form>`,
+  })
+})
 
 const formLink = document.querySelector('.form-link')
 const application = document.querySelector('.application-section')
 const formBtn = document.querySelector('#form-button')
 
-
-function openFormLink () {
- application.classList.toggle('open')
+function openFormLink() {
+  application.classList.toggle('open')
 }
 
-formLink.addEventListener('click', openFormLink)
-formBtn.addEventListener('click', function () {Swal.fire({
-  width: 1200,
-  showConfirmButton: false,
-  showCloseButton: true,
-  html: `<form class="app-container">
-    <h2 class="app-title flex j-center">Заполните полную анкету</h2> 
+const initPopup = () => {
+  Swal.fire({
+    width: 1200,
+    showConfirmButton: false,
+    showCloseButton: true,
+    html: `<form class="app-container">
+    <h2 class="app-title flex j-center">Заполните полную анкету</h2>
     <div class="app-wrapper flex j-center">
       <input
         class="app-input"
@@ -330,134 +273,124 @@ formBtn.addEventListener('click', function () {Swal.fire({
         <a href="#"> политикой конфиденциальности</a>
       </div>
     </div>
-  </form>`
-})
-  const initDatepickers = () => {
-    const datepickers = Array.from(document.querySelectorAll('.date-input'))
+  </form>`,
+  })
 
-    datepickers.forEach(e => {
-      const inputDataName = e.dataset.name
-
-      window.datepicker(`input[name=${inputDataName}]`, {
-        customDays: ['Пн', 'Вт', 'Ср', 'Чт', 'Пн', 'Сб', 'Вс'],
-        customMonths: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-        formatter: (input, date, instance) => {
-          const value = date.toLocaleDateString()
-          input.value = value
-        }
-      })
-    })
-  }
-
-  window.addEventListener('click', windowClick)
   initDatepickers()
 
   const citizenship = new window.Select({
     placeholder: 'Выберите гражданство:',
     dataset: [
       {
-        value: 'Россия'
+        value: 'Россия',
       },
       {
-        value: 'Иностранное'
+        value: 'Иностранное',
       },
       {
-        value: 'Другое'
+        value: 'Другое',
       },
       {
-        value: 'Лицо без гражданства'
-      }
+        value: 'Лицо без гражданства',
+      },
     ],
     selected: '',
   }).componentMount({
-    el: document.querySelector('[ref="select-box-citizenship"]')
+    el: document.querySelector('[ref="select-box-citizenship"]'),
   })
-
 
   const documentType = new window.Select({
     placeholder: 'Выберите документ:',
     dataset: [
       {
-        value: 'Паспорт'
+        value: 'Паспорт',
       },
       {
-        value: 'Свидетельство о рождении,'
+        value: 'Свидетельство о рождении,',
       },
       {
-        value: 'Другое'
-      }
+        value: 'Другое',
+      },
     ],
     selected: '',
   }).componentMount({
-    el: document.querySelector('[ref="select-box-document"]')
+    el: document.querySelector('[ref="select-box-document"]'),
   })
 
   const period = new window.Select({
     placeholder: 'Выберите срок регистрации:',
     dataset: [
       {
-        value: '3 месяца'
+        value: '3 месяца',
       },
       {
-        value: '6 месяца'
+        value: '6 месяца',
       },
       {
-        value: '1 год'
+        value: '1 год',
       },
       {
-        value: '3 года'
+        value: '3 года',
       },
       {
-        value: '5 лет'
-      }
+        value: '5 лет',
+      },
     ],
     selected: '',
   }).componentMount({
-    el: document.querySelector('[ref="select-box-period"]')})
-  
-});
+    el: document.querySelector('[ref="select-box-period"]'),
+  })
+}
 
+formLink.addEventListener('click', openFormLink)
+formBtn.addEventListener('click', initPopup)
 
-// Анимация 
+// Анимация
 function onEntry(entry) {
-  entry.forEach(change => {
+  entry.forEach((change) => {
     if (change.isIntersecting) {
-     change.target.classList.add('steps-show');
+      change.target.classList.add('steps-show')
     }
-  });
+  })
 }
 
 let options = {
-  threshold: [0.5] };
-let observer = new IntersectionObserver(onEntry, options);
-let elements = document.querySelectorAll('.steps');
+  threshold: [0.5],
+}
+let observer = new IntersectionObserver(onEntry, options)
+let elements = document.querySelectorAll('.steps')
 
 for (let elm of elements) {
-  observer.observe(elm);
+  observer.observe(elm)
 }
 
 // Отправка данных на сервер
-function send(event, php){
-  console.log("Отправка запроса");
-  event.preventDefault ? event.preventDefault() : event.returnValue = false;
-  var req = new XMLHttpRequest();
-  req.open('POST', php, true);
-  req.onload = function() {
+function send(event, php) {
+  console.log('Отправка запроса')
+  event.preventDefault ? event.preventDefault() : (event.returnValue = false)
+  var req = new XMLHttpRequest()
+  req.open('POST', php, true)
+  req.onload = function () {
     if (req.status >= 200 && req.status < 400) {
-    json = JSON.parse(this.response); 
-        console.log(json);
-          
-        if (json.result == "success") {
-          // Если сообщение отправлено
-          alert("Сообщение отправлено");
-        } else {
-          // Если произошла ошибка
-          alert("Ошибка. Сообщение не отправлено");
-        }
+      json = JSON.parse(this.response)
+      console.log(json)
+
+      if (json.result == 'success') {
+        // Если сообщение отправлено
+        alert('Сообщение отправлено')
+      } else {
+        // Если произошла ошибка
+        alert('Ошибка. Сообщение не отправлено')
+      }
       // Если не удалось связаться с php файлом
-      } else {alert("Ошибка сервера. Номер: "+req.status);}}; 
-  
+    } else {
+      alert('Ошибка сервера. Номер: ' + req.status)
+    }
+  }
+
   // Если не удалось отправить запрос. Стоит блок на хостинге
-  req.onerror = function() {alert("Ошибка отправки запроса");};
-  req.send(new FormData(event.target));
+  req.onerror = function () {
+    alert('Ошибка отправки запроса')
+  }
+  req.send(new FormData(event.target))
 }

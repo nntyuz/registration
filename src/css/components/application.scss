@@ -1,156 +1,140 @@
-.application-section {
-  display: none;
-  position: relative;
-  padding-top: 100px;
-  @include xl {
-    padding-top: 60px;
-  }
-  &.open {
-    display: block;
-  }
-  .app-container-messeng {
-    text-align: center;
-    @include xs {
-      text-align: left;
-    }
-  }
-  .app-title {
-    margin-bottom: 65px;
-    align-items: center;
-    justify-content: center;
-    @include md {
-      margin-bottom: 60px;
-    }
-    @include xs {
-      align-items: normal;
-      justify-content: normal;
-      margin-bottom: 35px;
-    }
-  }
-  .app-wrapper {
-    @include md {
-      flex-direction: column;
-    }
-  }
-  .app-input {
-    position: relative;
-    width: 100%;
-    height: 83px;
-    background-color: var(--color-light-1);
-    border-radius: 10px;
-    border: 2px solid #c1bda1;
-    padding-left: 48px;
-    font-weight: 300;
-    font-size: 20px;
-    line-height: 24px;
-    color: var(--color-dark-2);
+.app-title {
+  margin-top: 60px;
+  margin-bottom: 65px;
+  align-items: center;
+  justify-content: center;
+  @include md {
     margin-bottom: 60px;
-    margin-right: 60px;
-    @include lg {
-      padding-left: 20px;
-      font-size: 14px;
-    }
-    @include md {
-      margin-bottom: 30px;
-    }
-    @include xs {
-      height: 55px;
-      font-size: 12px;
-      margin-bottom: 15px;
-    }
   }
-  .mr-0 {
-    margin-right: 0;
+  @include xs {
+    align-items: normal;
+    justify-content: normal;
+    margin-bottom: 35px;
   }
-  .app-comment {
-    width: 100%;
-    height: auto;
-    resize: none;
-    background-color: var(--color-light-1);
-    border-radius: 10px;
-    border: 2px solid #c1bda1;
-    padding-left: 48px;
-    padding-bottom: 130px;
-    padding-top: 30px;
-    margin-bottom: 85px;
-    font-weight: 300;
-    font-size: 20px;
-    line-height: 24px;
-    color: var(--color-dark-2);
-    @include lg {
-      padding-left: 20px;
-      font-size: 14px;
-    }
-    @include md {
-      margin-bottom: 60px;
-    }
-    @include xs {
-      font-size: 12px;
-      padding-top: 15px;
-      padding-left: 15px;
-      margin-bottom: 25px;
-    }
+}
+.app-wrapper {
+  @include md {
+    flex-direction: column;
   }
-  .act-button {
-    width: 520px;
-    height: 84px;
-    border-radius: 50px;
-    background: linear-gradient(
-      180deg,
-      var(--color-yellow-1) 0%,
-      var(--color-yellow-1) 100%
-    );
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 30px;
-    color: var(--color-dark-2);
-    transition: 300ms;
-    svg {
-      transition: 300ms;
-      &:first-child {
-        margin-left: 41px;
-        @include xs {
-          margin-left: 20px;
-        }
-      }
-    }
-    &:hover {
-      background: linear-gradient(92.12deg, #ffe228 15.02%, #ffe016 94.54%);
-      box-shadow: 0px 0px 18.5769px #ffd583;
-      svg {
-        margin-right: 5px;
-      }
-    }
-    @include xs {
-      width: 100%;
-      height: 55px;
-      font-size: 14px;
-      line-height: 16px;
-      svg {
-        &:first-child {
-          margin-left: 30px;
-        }
-      }
-    }
-  }
-  .form-privacy {
-    font-weight: 300;
+}
+.app-input {
+  position: relative;
+  width: 100%;
+  height: 83px;
+  background-color: var(--color-light-1);
+  border-radius: 10px;
+  border: 2px solid #c1bda1;
+  padding-left: 48px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--color-dark-2);
+  margin-bottom: 60px;
+  margin-right: 60px;
+  @include lg {
+    padding-left: 20px;
     font-size: 14px;
-    line-height: 17px;
-    color: #505050;
-    margin-top: 14px;
-    a {
-      color: #505050;
-      border-bottom: 1px solid #505050;
-      margin-left: 4px;
-      transition: 300ms;
-      &:hover {
-        border-bottom: 1px solid transparent;
+  }
+  @include md {
+    margin-bottom: 30px;
+  }
+  @include xs {
+    height: 55px;
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+}
+.mr-0 {
+  margin-right: 0;
+}
+.app-comment {
+  width: 100%;
+  height: auto;
+  resize: none;
+  background-color: var(--color-light-1);
+  border-radius: 10px;
+  border: 2px solid #c1bda1;
+  padding-left: 48px;
+  padding-bottom: 130px;
+  padding-top: 30px;
+  margin-bottom: 85px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--color-dark-2);
+  @include lg {
+    padding-left: 20px;
+    font-size: 14px;
+  }
+  @include md {
+    margin-bottom: 60px;
+  }
+  @include xs {
+    font-size: 12px;
+    padding-top: 15px;
+    padding-left: 15px;
+    margin-bottom: 25px;
+  }
+}
+.act-button {
+  width: 520px;
+  height: 84px;
+  border-radius: 50px;
+  background: linear-gradient(
+    180deg,
+    var(--color-yellow-1) 0%,
+    var(--color-yellow-1) 100%
+  );
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  color: var(--color-dark-2);
+  transition: 300ms;
+  svg {
+    transition: 300ms;
+    &:first-child {
+      margin-left: 41px;
+      @include xs {
+        margin-left: 20px;
       }
     }
-    @include xs {
-      font-size: 8px;
-      line-height: 10px;
+  }
+  &:hover {
+    background: linear-gradient(92.12deg, #ffe228 15.02%, #ffe016 94.54%);
+    box-shadow: 0px 0px 18.5769px #ffd583;
+    svg {
+      margin-right: 5px;
     }
+  }
+  @include xs {
+    width: 100%;
+    height: 55px;
+    font-size: 14px;
+    line-height: 16px;
+    svg {
+      &:first-child {
+        margin-left: 30px;
+      }
+    }
+  }
+}
+.form-privacy {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #505050;
+  margin-top: 14px;
+  a {
+    color: #505050;
+    border-bottom: 1px solid #505050;
+    margin-left: 4px;
+    transition: 300ms;
+    &:hover {
+      border-bottom: 1px solid transparent;
+    }
+  }
+  @include xs {
+    font-size: 8px;
+    line-height: 10px;
   }
 }

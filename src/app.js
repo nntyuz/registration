@@ -1,5 +1,4 @@
-window.Swal from 'sweetalert2';
-
+console.log('swal', Swal);
 
 
 const swiper = new Swiper('.swiper', {
@@ -250,57 +249,173 @@ function openFormLink () {
 
 formLink.addEventListener('click', openFormLink)
 formBtn.addEventListener('click', function () {Swal.fire({
-  width: 900,
+  width: 1200,
   showConfirmButton: false,
   showCloseButton: true,
-  html: `<form
-    enctype="multipart/form-data"
-    method="post"
-    id="form"
-    onsubmit="send(event, './phpmailer/send.php')"
-    class="modal-container flex a-center column">
-    <h2 class="modal-title">Получить косультацию</h2>
-    <input class="modal-input" type="text" placeholder="Ваше имя" />
-    <input class="modal-input" type="tel" placeholder="Ваш телефон" />
-    <button
-      value="Свяжитесь со мной"
-      type="submit"
-      id="modal-button"
-      class="act-button flex a-center j-center">
-      Свяжитесь со мной
-      <svg
-        width="7"
-        height="11"
-        viewBox="0 0 7 11"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M5.85379 6.33438C6.11289 6.07528 6.11289 5.6552 5.85379 5.3961L1.63157 1.17384C1.37247 0.914742 0.952388 0.914741 0.693289 1.17384C0.43419 1.43293 0.434189 1.85302 0.693285 2.11211L4.44638 5.86523L0.693257 9.61832C0.434159 9.87742 0.434157 10.2975 0.693254 10.5566C0.952351 10.8157 1.37243 10.8157 1.63153 10.5566L5.85379 6.33438ZM4.72119 6.5287L5.38465 6.5287L5.38466 5.20178L4.72119 5.20177L4.72119 6.5287Z"
-        fill="#3E3E3E"/>
-      </svg>
-      <svg
-        width="7"
-        height="11"
-        viewBox="0 0 7 11"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M5.85379 6.33438C6.11289 6.07528 6.11289 5.6552 5.85379 5.3961L1.63157 1.17384C1.37247 0.914742 0.952388 0.914741 0.693289 1.17384C0.43419 1.43293 0.434189 1.85302 0.693285 2.11211L4.44638 5.86523L0.693257 9.61832C0.434159 9.87742 0.434157 10.2975 0.693254 10.5566C0.952351 10.8157 1.37243 10.8157 1.63153 10.5566L5.85379 6.33438ZM4.72119 6.5287L5.38465 6.5287L5.38466 5.20178L4.72119 5.20177L4.72119 6.5287Z"
-        fill="#3E3E3E"/>
-      </svg>
-      <svg
-        width="7"
-        height="11"
-        viewBox="0 0 7 11"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M5.85379 6.33438C6.11289 6.07528 6.11289 5.6552 5.85379 5.3961L1.63157 1.17384C1.37247 0.914742 0.952388 0.914741 0.693289 1.17384C0.43419 1.43293 0.434189 1.85302 0.693285 2.11211L4.44638 5.86523L0.693257 9.61832C0.434159 9.87742 0.434157 10.2975 0.693254 10.5566C0.952351 10.8157 1.37243 10.8157 1.63153 10.5566L5.85379 6.33438ZM4.72119 6.5287L5.38465 6.5287L5.38466 5.20178L4.72119 5.20177L4.72119 6.5287Z"
-        fill="#3E3E3E"/>
-      </svg>
-    </button>
+  html: `<form class="app-container">
+    <h2 class="app-title flex j-center">Заполните полную анкету</h2> 
+    <div class="app-wrapper flex j-center">
+      <input
+        class="app-input"
+        type="text"
+        name="name"
+        placeholder="Ваша Фамилия:"
+      />
+      <input
+        class="app-input mr-0"
+        type="text"
+        name="name"
+        placeholder="Ваше Отчество:"
+      />
+    </div>
+    <div class="app-wrapper flex j-between">
+      <div ref="select-box-citizenship" class="app-input"></div>
+      <input
+        class="app-input date-input"
+        name="birth"
+        data-name="birth"
+        placeholder="Дата рождения:"
+      />
+      <input
+        class="app-input mr-0"
+        type="text"
+        name="place"
+        placeholder="Место рождения:"
+      />
+    </div>
+    <div class="app-wrapper flex j-between">
+      <div ref="select-box-document" class="app-input"></div>
+      <input
+        class="app-input"
+        type="number"
+        name="series"
+        placeholder="Серия и номер документа:"
+      />
+      <input
+        class="app-input mr-0"
+        type="number"
+        name="term"
+        placeholder="Срок действия паспорта:"
+      />
+    </div>
+    <div class="app-wrapper flex j-between">
+      <input
+        class="app-input"
+        type="text"
+        name="citizenship"
+        placeholder="Кем выдан документ:"
+      />
+      <input
+        class="app-input date-input"
+        data-name="date"
+        name="date"
+        placeholder="Дата выдачи документа:"
+      />
+      <div ref="select-box-period" class="app-input mr-0"></div>
+    </div>
+    <textarea
+      class="app-comment"
+      name="comment"
+      placeholder="Комментарий"
+    ></textarea>
+    <div class="flex column a-center j-center">
+      <button class="act-button flex a-center j-center">
+        Отправить
+        <include src="./src/icons/arrow-button.html"></include>
+        <include src="./src/icons/arrow-button.html"></include>
+        <include src="./src/icons/arrow-button.html"></include>
+      </button>
+      <div class="form-privacy flex">
+        Заполняя форму вы соглашаетесь с
+        <a href="#"> политикой конфиденциальности</a>
+      </div>
+    </div>
   </form>`
-})});
+})
+  const initDatepickers = () => {
+    const datepickers = Array.from(document.querySelectorAll('.date-input'))
+
+    datepickers.forEach(e => {
+      const inputDataName = e.dataset.name
+
+      window.datepicker(`input[name=${inputDataName}]`, {
+        customDays: ['Пн', 'Вт', 'Ср', 'Чт', 'Пн', 'Сб', 'Вс'],
+        customMonths: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        formatter: (input, date, instance) => {
+          const value = date.toLocaleDateString()
+          input.value = value
+        }
+      })
+    })
+  }
+
+  window.addEventListener('click', windowClick)
+  initDatepickers()
+
+  const citizenship = new window.Select({
+    placeholder: 'Выберите гражданство:',
+    dataset: [
+      {
+        value: 'Россия'
+      },
+      {
+        value: 'Иностранное'
+      },
+      {
+        value: 'Другое'
+      },
+      {
+        value: 'Лицо без гражданства'
+      }
+    ],
+    selected: '',
+  }).componentMount({
+    el: document.querySelector('[ref="select-box-citizenship"]')
+  })
+
+
+  const documentType = new window.Select({
+    placeholder: 'Выберите документ:',
+    dataset: [
+      {
+        value: 'Паспорт'
+      },
+      {
+        value: 'Свидетельство о рождении,'
+      },
+      {
+        value: 'Другое'
+      }
+    ],
+    selected: '',
+  }).componentMount({
+    el: document.querySelector('[ref="select-box-document"]')
+  })
+
+  const period = new window.Select({
+    placeholder: 'Выберите срок регистрации:',
+    dataset: [
+      {
+        value: '3 месяца'
+      },
+      {
+        value: '6 месяца'
+      },
+      {
+        value: '1 год'
+      },
+      {
+        value: '3 года'
+      },
+      {
+        value: '5 лет'
+      }
+    ],
+    selected: '',
+  }).componentMount({
+    el: document.querySelector('[ref="select-box-period"]')})
+  
+});
 
 
 // Анимация 

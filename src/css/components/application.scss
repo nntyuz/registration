@@ -26,11 +26,14 @@
   border: 2px solid #c1bda1;
   padding-left: 48px;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 24px;
   color: var(--color-dark-2);
   margin-bottom: 60px;
   margin-right: 60px;
+  &::placeholder {
+    color: var(--color-dark-1);
+  }
   @include lg {
     padding-left: 20px;
     font-size: 14px;

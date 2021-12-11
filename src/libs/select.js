@@ -104,6 +104,7 @@
           super(props);
           this.state = {
               placeholder: this.props.placeholder || '',
+              name: this.props.name || '',
               expanded: false
           };
           this.onDocumentClick = this.onDocumentClick.bind(this);
@@ -177,6 +178,7 @@
           super(props);
           this.state = {
               query: "",
+              name: this.props.name,
               dataset: this.props.dataset || [],
               selected: this.props.selected
           };
@@ -186,11 +188,13 @@
 
       onQueryChanged(event) {
           const query = event.target.value;
+          const name = event.target.name;
           const match = new RegExp(query, 'gi');
           const dataset = (this.props.dataset || []).filter(item => match.test(item.text || item.value || ''));
           this.setState(prevState => ({
               query: query,
-              dataset: dataset
+              dataset: dataset,
+              name: name
           }));
       }
 
@@ -205,10 +209,10 @@
 
       render(props, state) {
           if (state.dataset.length === 0) {
-              return `<input ref="query" type="text" value="${state.query}" class="select__query">
+              return `<input ref="query" type="text" value="${state.query}" class="select__query" name="${state.name}">
                   <span class="select__query_noresult">No results found</span>`;
           }
-          return `<input ref="query" type="text" value="${state.query}" class="select__query">
+          return `<input ref="query" type="text" value="${state.query}" class="select__query" name="${state.name}">
                   <ul ref="list" class="select__list">
                       ${ state.dataset.map(function(item, index){
                               return `

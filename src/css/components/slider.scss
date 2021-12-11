@@ -10,6 +10,9 @@
   .swiper {
     height: 808px;
   }
+  .slider-title {
+    margin-bottom: 60px;
+  }
   .slide {
     height: 100%;
     background: center center url(./img/device.png) no-repeat;
@@ -19,7 +22,7 @@
     user-select: none;
     img {
       display: block;
-      max-width: calc(100% - 10px);
+      max-width: calc(100% - 40px);
     }
     @include lg {
       img {

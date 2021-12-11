@@ -136,11 +136,11 @@ phoneLink.addEventListener('click', function () {
     enctype="multipart/form-data"
     method="post"
     id="form"
-    onsubmit="send(event, './phpmailer/send.php')"
+    onsubmit="sendConsult(event, './PHPMailer/forms/consult.php')"
     class="modal-container flex a-center column">
     <h2 class="modal-title">Получить косультацию</h2>
-    <input class="modal-input" type="text" placeholder="Ваше имя" />
-    <input class="modal-input" type="tel" placeholder="Ваш телефон" />
+    <input class="modal-input" type="text" placeholder="Ваше имя" name="name" />
+    <input class="modal-input telephone" name="telephone" type="tel" placeholder="Ваш телефон" name="phone" />
     <button
       value="Свяжитесь со мной"
       type="submit"
@@ -180,29 +180,36 @@ phoneLink.addEventListener('click', function () {
     </button>
   </form>`,
   })
+  phoneMask('.telephone')
 })
 
 const application = document.querySelector('.application-section')
 const formBtn = document.querySelector('#form-button')
 
-const initPopup = () => {
+const initPopup = (event) => {
+  event.preventDefault()
   Swal.fire({
     width: 1200,
     showConfirmButton: false,
     showCloseButton: true,
-    html: `<form class="app-container">
+    html: `<form class="app-container"
+    method="post"
+    onsubmit="sendApplication(event, Swal)"
+    enctype="multipart/form-data">
     <h2 class="app-title flex j-center">Заполните полную анкету</h2>
+    <input id="application-modal-name" style="display: none;" type="text" placeholder="Ваше имя" name="name" />
+    <input id="application-modal-phone" style="display: none;" type="tel" placeholder="Ваш телефон" name="phone" />
     <div class="app-wrapper flex j-center">
       <input
         class="app-input"
         type="text"
-        name="name"
+        name="lastname"
         placeholder="Ваша Фамилия:"
       />
       <input
         class="app-input mr-0"
         type="text"
-        name="name"
+        name="middlename"
         placeholder="Ваше Отчество:"
       />
     </div>
@@ -210,8 +217,8 @@ const initPopup = () => {
       <div ref="select-box-citizenship" class="app-input"></div>
       <input
         class="app-input date-input"
-        name="birth"
-        data-name="birth"
+        name="birthdate"
+        data-name="birthdate"
         placeholder="Дата рождения:"
       />
       <input
@@ -226,13 +233,13 @@ const initPopup = () => {
       <input
         class="app-input"
         type="number"
-        name="series"
+        name="document"
         placeholder="Серия и номер документа:"
       />
       <input
-        class="app-input mr-0"
-        type="number"
-        name="term"
+        class="app-input date-input mr-0"
+        data-name="expiredate"
+        name="expiredate"
         placeholder="Срок действия паспорта:"
       />
     </div>
@@ -240,13 +247,13 @@ const initPopup = () => {
       <input
         class="app-input"
         type="text"
-        name="citizenship"
+        name="authority"
         placeholder="Кем выдан документ:"
       />
       <input
         class="app-input date-input"
-        data-name="date"
-        name="date"
+        data-name="issuedate"
+        name="issuedate"
         placeholder="Дата выдачи документа:"
       />
       <div ref="select-box-period" class="app-input mr-0"></div>
@@ -296,7 +303,21 @@ const initPopup = () => {
       </div>
     </div>
   </form>`,
+  }).then(result => {
+    // if (result.dismiss === 'close' || result.dismiss === 'backdrop') {
+    if (result.dismiss === 'close') {
+      sendForm()
+    }
   })
+
+  const applicationName = document.querySelector('#application-name')
+  const applicationPhone = document.querySelector('#application-phone')
+
+  const applicationModalName = document.querySelector('#application-modal-name')
+  const applicationModalPhone = document.querySelector('#application-modal-phone')
+
+  applicationModalName.value = applicationName.value
+  applicationModalPhone.value = applicationPhone.value
 
   initDatepickers()
 
@@ -316,6 +337,7 @@ const initPopup = () => {
         value: 'Лицо без гражданства',
       },
     ],
+    name: 'citizenship',
     selected: '',
   }).componentMount({
     el: document.querySelector('[ref="select-box-citizenship"]'),
@@ -334,6 +356,7 @@ const initPopup = () => {
         value: 'Другое',
       },
     ],
+    name: 'documenttype',
     selected: '',
   }).componentMount({
     el: document.querySelector('[ref="select-box-document"]'),
@@ -358,6 +381,7 @@ const initPopup = () => {
         value: '5 лет',
       },
     ],
+    name: 'registration',
     selected: '',
   }).componentMount({
     el: document.querySelector('[ref="select-box-period"]'),
@@ -386,7 +410,7 @@ for (let elm of elements) {
 }
 
 // Отправка данных на сервер
-function send(event, php) {
+function sendConsult(event, php) {
   console.log('Отправка запроса')
   event.preventDefault ? event.preventDefault() : (event.returnValue = false)
   var req = new XMLHttpRequest()
@@ -396,15 +420,18 @@ function send(event, php) {
       json = JSON.parse(this.response)
       console.log(json)
 
-      if (json.result == 'success') {
-        // Если сообщение отправлено
-        alert('Сообщение отправлено')
-      } else {
-        // Если произошла ошибка
-        alert('Ошибка. Сообщение не отправлено')
-      }
+      alert('Сообщение отправлено')
+
+      // if (json.result == 'success') {
+      //   // Если сообщение отправлено
+      //   alert('Сообщение отправлено')
+      // } else {
+      //   // Если произошла ошибка
+      //   alert('Ошибка. Сообщение не отправлено')
+      // }
       // Если не удалось связаться с php файлом
     } else {
+      console.log(req)
       alert('Ошибка сервера. Номер: ' + req.status)
     }
   }
@@ -415,3 +442,117 @@ function send(event, php) {
   }
   req.send(new FormData(event.target))
 }
+
+function sendForm () {
+  const form = document.querySelector('#help')
+  const php = './PHPMailer/forms/consult.php'
+
+  const req = new XMLHttpRequest()
+  req.open('POST', php, true)
+  req.onload = function () {
+    if (req.status >= 200 && req.status < 400) {
+      json = JSON.parse(this.response)
+      console.log(json)
+      // alert('Сообщение отправлено')
+
+      // if (json.result == 'success') {
+      //   // Если сообщение отправлено
+      //   alert('Сообщение отправлено')
+      // } else {
+      //   // Если произошла ошибка
+      //   alert('Ошибка. Сообщение не отправлено')
+      // }
+      // // Если не удалось связаться с php файлом
+    } else {
+      console.log(req)
+      alert('Ошибка сервера. Номер: ' + req.status)
+    }
+  }
+
+  // Если не удалось отправить запрос. Стоит блок на хостинге
+  req.onerror = function () {
+    alert('Ошибка отправки запроса')
+  }
+  req.send(new FormData(form))
+}
+
+const setApplicationSelects = () => {
+  const citizenship = document.querySelector('[ref="select-box-citizenship"] .select__label')
+  const documentType = document.querySelector('[ref="select-box-document"] .select__label')
+  const registration = document.querySelector('[ref="select-box-period"] .select__label')
+
+  const citizenshipInput = document.querySelector('input[name="citizenship"]')
+  const documentTypeInput = document.querySelector('input[name="documenttype"]')
+  const registrationInput = document.querySelector('input[name="registration"]')
+
+  citizenshipInput.value = citizenship.innerHTML
+  documentTypeInput.value = documentType.innerHTML
+  registrationInput.value = registration.innerHTML
+}
+
+function sendApplication(event, Swal) {
+  event.preventDefault()
+  const php = './PHPMailer/forms/application.php'
+
+  setApplicationSelects()
+
+  console.log('Отправка запроса')
+  const req = new XMLHttpRequest()
+  req.open('POST', php, true)
+  req.onload = function () {
+    if (req.status >= 200 && req.status < 400) {
+      json = JSON.parse(this.response)
+      console.log(json)
+      alert('Сообщение отправлено')
+      Swal.close()
+    } else {
+      console.log(req)
+      alert('Ошибка сервера. Номер: ' + req.status)
+    }
+  }
+
+  // Если не удалось отправить запрос. Стоит блок на хостинге
+  req.onerror = function () {
+    alert('Ошибка отправки запроса')
+  }
+  req.send(new FormData(event.target))
+}
+
+// Phone Mask
+function phoneMask (selector) {
+  [].forEach.call( document.querySelectorAll(selector), function(input) {
+  let keyCode;
+  function mask(event) {
+      event.keyCode && (keyCode = event.keyCode);
+      let pos = this.selectionStart;
+      if (pos < 3) event.preventDefault();
+      let matrix = "+7 (___)-___-____",
+          i = 0,
+          def = matrix.replace(/\D/g, ""),
+          val = this.value.replace(/\D/g, ""),
+          new_value = matrix.replace(/[_\d]/g, function(a) {
+              return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+          });
+      i = new_value.indexOf("_");
+      if (i != -1) {
+          i < 5 && (i = 3);
+          new_value = new_value.slice(0, i)
+      }
+      let reg = matrix.substr(0, this.value.length).replace(/_+/g,
+          function(a) {
+              return "\\d{1," + a.length + "}"
+          }).replace(/[+()]/g, "\\$&");
+      reg = new RegExp("^" + reg + "$");
+      if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+      if (event.type == "blur" && this.value.length < 5)  this.value = ""
+  }
+
+  input.addEventListener("input", mask, false);
+  input.addEventListener("focus", mask, false);
+  input.addEventListener("blur", mask, false);
+  input.addEventListener("keydown", mask, false)
+
+})
+};
+
+phoneMask('.tel')

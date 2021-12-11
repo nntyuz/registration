@@ -96,7 +96,7 @@ const initDatepickers = () => {
   })
 }
 
-window.addEventListener('click', windowClick)
+document.addEventListener('click', windowClick)
 
 // Бургер и модалка
 const menu = document.querySelector('.menu-container')
@@ -139,8 +139,8 @@ phoneLink.addEventListener('click', function () {
     onsubmit="sendConsult(event, './PHPMailer/forms/consult.php')"
     class="modal-container flex a-center column">
     <h2 class="modal-title">Получить косультацию</h2>
-    <input class="modal-input" type="text" placeholder="Ваше имя" name="name" />
-    <input class="modal-input telephone" name="telephone" type="tel" placeholder="Ваш телефон" name="phone" />
+    <input class="modal-input" type="text" placeholder="Ваше имя" name="name" required />
+    <input class="modal-input telephone" name="telephone" type="tel" placeholder="Ваш телефон" name="phone" required />
     <button
       value="Свяжитесь со мной"
       type="submit"
@@ -197,20 +197,22 @@ const initPopup = (event) => {
     onsubmit="sendApplication(event, Swal)"
     enctype="multipart/form-data">
     <h2 class="app-title flex j-center">Заполните полную анкету</h2>
-    <input id="application-modal-name" style="display: none;" type="text" placeholder="Ваше имя" name="name" />
-    <input id="application-modal-phone" style="display: none;" type="tel" placeholder="Ваш телефон" name="phone" />
+    <input id="application-modal-name" style="display: none;" type="text" placeholder="Ваше имя" name="name" required />
+    <input id="application-modal-phone" style="display: none;" type="tel" placeholder="Ваш телефон" name="phone" required />
     <div class="app-wrapper flex j-center">
       <input
         class="app-input"
         type="text"
         name="lastname"
         placeholder="Ваша Фамилия:"
+        required
       />
       <input
         class="app-input mr-0"
         type="text"
         name="middlename"
         placeholder="Ваше Отчество:"
+        required
       />
     </div>
     <div class="app-wrapper flex j-between">
@@ -220,12 +222,15 @@ const initPopup = (event) => {
         name="birthdate"
         data-name="birthdate"
         placeholder="Дата рождения:"
+        required
       />
       <input
         class="app-input mr-0"
         type="text"
         name="place"
+        required
         placeholder="Место рождения:"
+        required
       />
     </div>
     <div class="app-wrapper flex j-between">
@@ -235,12 +240,14 @@ const initPopup = (event) => {
         type="number"
         name="document"
         placeholder="Серия и номер документа:"
+        required
       />
       <input
         class="app-input date-input mr-0"
         data-name="expiredate"
         name="expiredate"
         placeholder="Срок действия паспорта:"
+        required
       />
     </div>
     <div class="app-wrapper flex j-between">
@@ -249,12 +256,14 @@ const initPopup = (event) => {
         type="text"
         name="authority"
         placeholder="Кем выдан документ:"
+        required
       />
       <input
         class="app-input date-input"
         data-name="issuedate"
         name="issuedate"
         placeholder="Дата выдачи документа:"
+        required
       />
       <div ref="select-box-period" class="app-input mr-0"></div>
     </div>
@@ -417,7 +426,7 @@ function sendConsult(event, php) {
   req.open('POST', php, true)
   req.onload = function () {
     if (req.status >= 200 && req.status < 400) {
-      json = JSON.parse(this.response)
+      const  json = JSON.parse(this.response)
       console.log(json)
 
       alert('Сообщение отправлено')
@@ -451,7 +460,7 @@ function sendForm () {
   req.open('POST', php, true)
   req.onload = function () {
     if (req.status >= 200 && req.status < 400) {
-      json = JSON.parse(this.response)
+      const  json = JSON.parse(this.response)
       console.log(json)
       // alert('Сообщение отправлено')
 
@@ -501,7 +510,7 @@ function sendApplication(event, Swal) {
   req.open('POST', php, true)
   req.onload = function () {
     if (req.status >= 200 && req.status < 400) {
-      json = JSON.parse(this.response)
+      const  json = JSON.parse(this.response)
       console.log(json)
       alert('Сообщение отправлено')
       Swal.close()

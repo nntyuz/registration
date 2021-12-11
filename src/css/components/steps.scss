@@ -18,6 +18,9 @@
     @include xs {
       margin-bottom: 35px;
     }
+    @include sm {
+      margin-bottom: 20px;
+    }
   }
   .steps-container {
     margin-bottom: 132px;

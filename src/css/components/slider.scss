@@ -9,9 +9,18 @@
   }
   .swiper {
     height: 808px;
+    @include xs {
+      height: 860px;
+    }
+    @include xs {
+      height: 640px;
+    }
   }
   .slider-title {
     margin-bottom: 60px;
+    @include xs {
+      margin-bottom: 30px;
+    }
   }
   .slide {
     height: 100%;
@@ -24,14 +33,39 @@
       display: block;
       max-width: calc(100% - 40px);
     }
+    @include xl {
+      img {
+        max-width: calc(100% - 10px);
+      }
+    }
     @include lg {
       img {
-        max-width: 250px;
+        max-width: calc(100% - 10px);
+      }
+    }
+    @include lgx {
+      img {
+        max-width: calc(100% - 560px);
       }
     }
     @include md {
       img {
         max-width: 350px;
+      }
+    }
+    @include sm {
+      img {
+        max-width: 352px;
+      }
+    }
+    @include xs {
+      img {
+        max-width:270px ;
+      }
+    }
+    @include xxs {
+      img {
+        max-width: 260px
       }
     }
   }
@@ -67,6 +101,9 @@
         margin-right: 40px;
       }
     }
+    @include lgx {
+      bottom: 404px;
+    }
     @include md {
       top: 50%;
       bottom: 0;
@@ -74,6 +111,15 @@
     @include sm {
       top: auto;
       bottom: -150px;
+    }
+    @include xs {
+      top: auto;
+      bottom: -130px;
+    }
+
+    @include xxs {
+      top: 656px;
+      bottom: auto;
     }
   }
 }

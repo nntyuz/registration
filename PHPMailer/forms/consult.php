@@ -19,8 +19,8 @@ $mail = new PHPMailer(true);
 $mail->CharSet = 'UTF-8';
 $mail->setLanguage('ru', 'PHPMailer/language/');
 
-$mail->setFrom('phptestmailer@yandex.ru', 'Заявка с сайта');
-$mail->AddAddress('phptestmailer@yandex.ru');
+$mail->setFrom('ivoryplay01@gmail.com', 'Заявка с сайта');
+$mail->AddAddress('ivoryplay01@gmail.com');
 
 $mail->IsHTML(true);
 $mail->Subject = $title;

@@ -2,6 +2,7 @@ $xxs: 460px;
 $xs: 660px;
 $sm: 768px;
 $md: 960px;
+$lgx: 1024px;
 $lg: 1280px;
 $xl: 1600px;
 
@@ -31,6 +32,12 @@ $xl: 1600px;
 
 @mixin lg {
   @media (max-width: $lg) {
+    @content;
+  }
+}
+
+@mixin lgx {
+  @media (max-width: $lgx) {
     @content;
   }
 }

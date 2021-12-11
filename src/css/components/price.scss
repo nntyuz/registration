@@ -11,6 +11,7 @@
     background-size: cover;
   }
   @include xs {
+    background-attachment: scroll;
     padding-top: 60px;
     padding-bottom: 70px;
   }

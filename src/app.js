@@ -184,7 +184,6 @@ phoneLink.addEventListener('click', function () {
 })
 
 const application = document.querySelector('.application-section')
-const formBtn = document.querySelector('#form-button')
 
 const initPopup = (event) => {
   event.preventDefault()
@@ -397,7 +396,8 @@ const initPopup = (event) => {
   })
 }
 
-formBtn.addEventListener('click', initPopup)
+const form = document.querySelector('#form')
+form.addEventListener('submit', initPopup)
 
 // Анимация
 function onEntry(entry) {

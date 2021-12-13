@@ -3,6 +3,11 @@ const swiper = new Swiper('.swiper', {
   slidesPerView: 1,
   centeredSlides: true,
   spaceBetween: 0,
+  preloadImages: false,
+  watchSlidesProgress: true,
+  lazy: {
+    loadPrevNext: true,
+  },
   breakpoints: {
     600: {
       slidesPerView: 1,

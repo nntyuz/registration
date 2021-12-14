@@ -103,7 +103,7 @@ const initDatepickers = () => {
 
 document.addEventListener('click', windowClick)
 
-// Анимация
+// // Анимация
 function onEntry(entry) {
   entry.forEach((change) => {
     if (change.isIntersecting) {
